@@ -4,7 +4,9 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Home from "./components/pages/home/Home";
+import Home from "./pages/home/Home";
+import RecipeDetails from "./components/recipeDetails/RecipeDetails";
+import AllRecipes from "./pages/allRecipes/AllRecipes";
 
 function App(): JSX.Element {
   return (
@@ -12,7 +14,9 @@ function App(): JSX.Element {
       <Router>
         <Routes>
           <Route element={<Home />} path="/" />
-          <Route element={<Navigate to="/home" />} path="*" />
+          <Route element={<AllRecipes />} path="/allRecipes" />
+          <Route element={<RecipeDetails />} path="/recipeDetails" />
+          <Route element={<Navigate to="/" />} path="*" />
         </Routes>
       </Router>
     </>
