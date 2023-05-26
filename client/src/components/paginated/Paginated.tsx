@@ -1,4 +1,4 @@
-import { TheRecipe } from "../../types/recipes";
+import { TheRecipe } from "../../Interfaces/Interfaces";
 
 import { TbArrowBigRight } from 'react-icons/tb';
 import { TbArrowBigLeft } from 'react-icons/tb';

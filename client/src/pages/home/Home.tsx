@@ -1,21 +1,25 @@
 // import React from 'react';
-import NavBar from '../../components/navBar/NavBar';
-import FirstRecipes from '../../components/initialRecipes/FirstRecipes';
-import SecondRecipes from '../../components/secondRecipes/SecondRecipes';
+
+import SecondaryRecipes from '../../components/secondaryRecipes/SecondaryRecipes';
+import PrincipalRecipes from '../../components/initialRecipes/PrincipalRecipes';
+import HeaderComponent from '../../components/headerComponent/HeaderComponent';
+import RecipesCarousel from '../../components/recipesCarousel/RecipesCarousel';
+import Footer from '../../components/footer/Footer';
 
 const Home = (): JSX.Element => {
   return (
-    <div className="">
-        <NavBar/>
-    <div className="">
-      <FirstRecipes/>
-    </div>
-    <div>
-      <SecondRecipes/>
-    </div>
-    </div>
-    
-  )
+    <>
+      <HeaderComponent />
+
+      <PrincipalRecipes />
+
+      <SecondaryRecipes />
+
+      <RecipesCarousel />
+
+      <Footer/>
+    </>
+  );
 }
 
 export default Home

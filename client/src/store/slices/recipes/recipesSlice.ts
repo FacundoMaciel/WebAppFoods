@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TheInitialState } from "../../../types/recipes";
+import { TheInitialState } from "../../../Interfaces/Interfaces";
 
 const initialState: TheInitialState = {
 	recipes: [],

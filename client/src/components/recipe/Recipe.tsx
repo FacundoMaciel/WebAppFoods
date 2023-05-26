@@ -1,37 +1,33 @@
-import { TheRecipe } from '../../types/recipes'
+import { RecipesInterface } from "../../Interfaces/Interfaces"
 
-const Recipe = ({id, healthScore, title, image}: TheRecipe): JSX.Element => {
+
+const Recipe = ({id, healthScore, title, image}: RecipesInterface): JSX.Element => {
     
   return (
-    <div className="w-full max-w-sm bg-transparent rounded-2xl border border-gray-500">
-        <a href="#">
-          <img className="p-8 rounded-t-lg"
-            src= {image}
-            alt="Not Found"
-          />
-        </a>
-        <div className="px-5 pb-5">
-          <a href="#">
-            <h5 className="text-large tracking-tight text-gray-900">
-              {title}
-            </h5>
-          </a>
-          <div className="flex items-center mt-2.5 mb-5">
-            PONER ALGO
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900">
-              {healthScore}
-            </span>
-            <a
-              href="#"
-              className="text-gray-900 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Ver Mas
-            </a>
-          </div>
+    <div
+			key={id}
+			className="flex justify-start w-[1000px] p-2 border-b-4"
+		>
+			<div className="flex flex-col md:flex-row w-[1000px] md:max-w-6xl rounded-lg bg-white shadow-lg">
+				<img
+					className="bg-pink-700 w-20 h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+					src={image}
+					alt=""
+				/>
+				<div className="p-6 flex flex-col justify-start ">
+					<div className="flex ">
+					</div>
+					<div className="flex justify-between items-center">
+						<p className="text-gray-600 text-xl font-bold">{healthScore}</p>
+						<div className="mr-96"></div>
+					</div>
+           <h2 className="text-gray-700 font-bold text-xl md:text-2xl ">{title}</h2>
+				</div>
+        <div>
+          
         </div>
-      </div>
+			</div>
+		</div>
   )
 }
 

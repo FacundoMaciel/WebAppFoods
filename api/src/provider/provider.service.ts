@@ -10,13 +10,13 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=445704158a1842839fee0c14930bc5cf&addRecipeInformation=true&number=100'
+            'https://api.spoonacular.com/recipes/complexSearch?apiKey=23e6cf8f890f48b997d1ef1dc5f90a81&addRecipeInformation=true&number=100'
         ),
       );
       // console.log(response.data.results.map(el => el.dishTypes));
       return response.data;
     } catch (error) {
-      throw new Error(error.message);
+      console.log(error);
     }
   }
 

@@ -1,16 +1,17 @@
-import { TheRecipe } from "../../types/recipes";
+import { RecipesInterface } from "../../Interfaces/Interfaces";
 import Recipe from "../recipe/Recipe";
 
 interface Props {
-  showRecipe: TheRecipe[];
+  recipes: RecipesInterface[];
 }
 
-const Recipes = ({ showRecipe }: Props): JSX.Element => {
+
+const Recipes = ({ recipes }: Props): JSX.Element => {
   return (
-    <>
-    {showRecipe.length ? (
-      <div className="w-full grid grid-cols-5 sm:grid-cols-3 gap-8 text-center py-2 px-12 sm:px-0 ">
-        {showRecipe.map((element) => (
+    <div > 
+    {recipes.length ? (
+      <div>
+        {recipes.map((element) => (
               <Recipe
                 id={element.id}
                 key={element.id}
@@ -19,13 +20,14 @@ const Recipes = ({ showRecipe }: Props): JSX.Element => {
                 healthScore={element.healthScore}
                 dishTypes={element.dishTypes}
                 diets={element.diets}
+                summary={element.summary}
               />
-            ))}
+              ))}
       </div>
       ) : ( 
-        null
+        "CARGANDO"
         )}
-    </>
+    </div>
   );
 };
 

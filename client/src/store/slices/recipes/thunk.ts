@@ -7,7 +7,7 @@ export function getAllRecipesThunk(): AppThunk {
     return async (dispatch) => {
         try {
             const response = await axios.get("http://localhost:3000/api/allRecipes")
-            let results = response.data
+            let results = response.data.results
             dispatch(getAllRecipes(results))
             // console.log(results);
         } catch (e) {
