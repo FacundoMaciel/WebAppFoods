@@ -22,8 +22,8 @@ const RecipesCarousel = (): JSX.Element => {
   const filteredVegetarianRecipes = vegetarianRecipes.slice(5, 15);
 
   return (
-    <div className="bg-gray-200 rounded-3xl mb-10 p-10">
-      <h1 className="text-center text-2xl">Vegetarian Recipe Slider</h1>
+    <div className=" mb-10 py-10">
+      <h1 className="text-center text-2xl text-gray-400">Vegetarian Recipe Slider</h1>
       <div className="flex flex-col pt-4">
         <div className="flex flex-center items-center mb-5">
           <Swiper 

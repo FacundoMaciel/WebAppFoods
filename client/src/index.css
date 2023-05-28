@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Lora', serif;
+    user-select: none;
 }

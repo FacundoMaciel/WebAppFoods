@@ -6,39 +6,39 @@ import { SlSocialTwitter } from 'react-icons/sl';
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-200 text-center text-white dark:bg-neutral-600">
-      <div className="container pt-9">
-        <div className="mb-9 flex justify-center items-center">
+    <footer className="bg-[#A1D6E2] text-center text-white justify-center items-center">
+      <div className="container pt-9 justify-center items-center text-center ml-14">
+        <div className="mb-9 flex justify-center items-center text-center">
           <a
             href="#!"
-            className="mr-9 text-neutral-800 dark:text-neutral-200"
+            className="mr-9 text-gray-600 hover:text-black hover:scale-105 duration-300"
           >
-           <SlSocialLinkedin size={20}/>
+           <SlSocialLinkedin size={25}/>
           </a>
           <a
             href="#!"
-            className="mr-9 text-neutral-800 dark:text-neutral-200"
+            className="mr-9 text-gray-600 hover:text-black hover:scale-105 duration-300"
           >
-            <SlSocialGithub size={20}/>
+            <SlSocialGithub size={25}/>
           </a>
           <a
             href="#!"
-            className="mr-9 text-neutral-800 dark:text-neutral-200"
+            className="mr-9 text-gray-600 hover:text-black hover:scale-105 duration-300"
           >
-            <SlFolder size={20}/>
+            <SlFolder size={25}/>
           </a>
           <a
             href="#!"
-            className="mr-9 text-neutral-800 dark:text-neutral-200"
+            className="mr-9 text-gray-600 hover:text-black hover:scale-105 duration-300"
           >
-            <SlSocialTwitter size={20}/>
+            <SlSocialTwitter size={25}/>
           </a>
         </div>
       </div>
-      <div className="bg-neutral-300 p-4 text-center text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200">
-        © 2023 Copyright:
+      <div className="bg-gray-400 p-4 text-center text-gray-600">
+        © 2523 Copyright:
         <a
-          className="text-neutral-800 dark:text-neutral-400"
+          className="text-gray-700"
           href="https://tailwind-elements.com/"
         >
         {''}  {''}  Facundo Maciel

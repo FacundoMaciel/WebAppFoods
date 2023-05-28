@@ -1,12 +1,12 @@
-// export interface TheRecipe {
-//   healthScore: number;
-//   id: number;
-//   title: string;
-//   image: string;
-//   summary?: string;
-//   dishTypes?: dishTypes[] | string[];
-//   diets?: dietsTypes[] | string[];
-// }
+export interface TheModalRecipe {
+  healthScore?: number;
+  id?: number;
+  title?: string;
+  image?: string;
+  summary?: string;
+  dishTypes?: dishTypes[] | string[];
+  diets?: dietsTypes[] | string[];
+}
 
 export interface RecipesInterface {
   aggregateLikes?: number;

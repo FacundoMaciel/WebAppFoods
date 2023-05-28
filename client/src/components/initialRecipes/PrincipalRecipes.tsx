@@ -16,11 +16,11 @@ const PrincipalRecipes = (): JSX.Element => {
   // console.log(filteredRecipes);
 
   return (
-    <div className="text-center mt-10 text-gray-700">
+    <div className="text-center mt-10 text-gray-400 mx-24">
       <div className="flex justify-center py-10">
-        <hr className="w-[80%]" />
+        <hr className="w-[90%]" />
       </div>
-      <div className="flex ml-20">
+      <div className="flex ml-10">
         <h1 className="text-2xl">Most chosen Recipes</h1>
       </div>
       <div className="flex flex-row justify-center items-center">
@@ -44,7 +44,7 @@ const PrincipalRecipes = (): JSX.Element => {
         )}
       </div>
       <div className="flex justify-center py-10">
-        <hr className="w-[80%]" />
+        <hr className="w-[90%]" />
       </div>
     </div>
   );
