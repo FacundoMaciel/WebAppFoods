@@ -18,8 +18,8 @@ const AllRecipes = () => {
    console.log(recipes);
 
   return (
-    <div className="container mx-auto px-20">
-        <div className="grid grid-cols-8 gap-8 md:grid-cols-2 xl:grid-cols-4 pt-20 pb-10 lg:pt-40 lg:pb-20">
+    <div className="border w-[40%] p-2 ml-10">
+        <div className="">
           <Recipes recipes={recipes} />
         </div>
       
