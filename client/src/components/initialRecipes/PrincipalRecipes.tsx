@@ -40,7 +40,7 @@ const PrincipalRecipes = (): JSX.Element => {
             ))}
           </div>
         ) : (
-          "CARGANDO..."
+          "Loading..."
         )}
       </div>
       <div className="flex justify-center py-10">

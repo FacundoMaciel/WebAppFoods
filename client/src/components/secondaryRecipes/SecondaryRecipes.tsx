@@ -93,7 +93,7 @@ const SecondRecipes = (): JSX.Element => {
             ))
           : null}
       </div>
-      <div className="flex justify-center py-10">
+      <div className="flex justify-center mt-8 pt-8">
         <hr className="w-[90%]" />
       </div>
     </div>

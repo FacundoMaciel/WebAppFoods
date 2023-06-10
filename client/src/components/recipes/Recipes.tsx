@@ -8,7 +8,7 @@ interface Props {
 
 const Recipes = ({ recipes }: Props): JSX.Element => {
   return (
-    <div > 
+    <> 
     {recipes.length ? (
       <div>
         {recipes.map((element) => (
@@ -27,7 +27,7 @@ const Recipes = ({ recipes }: Props): JSX.Element => {
       ) : ( 
         "CARGANDO"
         )}
-    </div>
+    </>
   );
 };
 

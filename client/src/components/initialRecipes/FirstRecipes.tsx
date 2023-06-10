@@ -14,7 +14,7 @@ const FirstRecipes = ({
     >
       <a href="#">
         <img
-          className="w-full h-auto hover:scale-105 duration-300"
+          className="w-full h-auto hover:shadow-xl duration-300"
           src={image}
           alt="product image"
         />
