@@ -1,52 +1,60 @@
-import { TheRecipe } from "../../Interfaces/Interfaces";
-
-import { TbArrowBigRight } from 'react-icons/tb';
-import { TbArrowBigLeft } from 'react-icons/tb';
+import { TiChevronRight } from "react-icons/ti";
+import { TiChevronLeft } from "react-icons/ti";
+// import { RecipesInterface } from "../../Interfaces/Interfaces";
 
 interface Props {
   recipesPerPage: number;
-  theRecipes: TheRecipe[];
+  recipes: number;
+  currentPage: number;
   paginated: number;
-  page: number;
-  previousPage: (pageNumber: number) => void;
-  nextPage: (pageNumber: number) => void
-  thePaging: (pageNumber: number) => void
+  nextPage: () => void;
+  previousPage: () => void;
+  thePage: (pageNumber: number) => void;
 }
 
-const Paginated = ({
+export default function Paginated({
   recipesPerPage,
-  theRecipes,
+  recipes,
   paginated,
-  page,
+  nextPage,
   previousPage,
-  thePaging,
-  nextPage
-}: Props): JSX.Element => {
-  const pageNumbers: number[] = [];
+}: Props): JSX.Element {
+  const thePages: number[] = [];
 
-  for (let i = 1; i <= Math.ceil(theRecipes.length / recipesPerPage); i++) {
-    pageNumbers.push(i);
+  for (let i = 1; i <= Math.ceil(recipes / recipesPerPage); i++) {
+    thePages.push(i);
   }
 
+  // const handleClick = (number)=>{
+  //     thePaging(number)
+  // }
   return (
-    <div>
-      <button
-        className="flex"
-        disabled={page === 1}
-        onClick={() => previousPage(page)}
-      >
-        <TbArrowBigLeft />
+    <div className="flex justify-center">
+      { paginated === 1 
+      ? <button className="mx-5 mb-4 p-2 cursor-not-allowed text-white"> 
+      <TiChevronLeft size={25} />
       </button>
-      <h5>{paginated}</h5>
-      <button
-        className="flex"
-        disabled={page === 10}
-        onClick={() => nextPage(page)}
+      : <button
+        className="mx-5 mb-4 p-2 hover:bg-[#A1D6E2] rounded-xl text-gray-500 hover:text-gray-700"
+        disabled={paginated === 1}
+        onClick={() => previousPage()}
       >
-        <TbArrowBigRight />
+        <TiChevronLeft size={25} />
       </button>
+      }
+      <h5 className="mb-4 p-2 text-xl font-bold">{paginated}</h5>
+      { paginated === 10
+      ? <button className="mx-5 mb-4 p-2 cursor-not-allowed text-white"> 
+      <TiChevronRight size={25} />
+      </button>
+      : <button
+        className="mx-5 mb-4 p-2 hover:bg-[#A1D6E2] rounded-xl text-gray-500 hover:text-gray-700"
+        disabled={paginated === 10}
+        onClick={() => nextPage()}
+      >
+        <TiChevronRight size={25} />
+      </button>
+      }
     </div>
   );
-};
-
-export default Paginated;
+}

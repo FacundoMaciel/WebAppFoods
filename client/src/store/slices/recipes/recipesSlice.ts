@@ -6,7 +6,8 @@ const initialState: TheInitialState = {
 	recipeDetails: {},
 	recipesWithFilters: [],
 	favorites: [],
-	diets: []
+	diets: [],
+	currentPage: 1
 };
 
 const recipesSlice = createSlice({
@@ -16,11 +17,15 @@ const recipesSlice = createSlice({
 		getAllRecipes: (state, action) => {
             state.recipes = action.payload
         },
+		setCurrentPage: (state, action) => {
+            state.currentPage = action.payload
+        },
 	},
 });
 
 export const {
-	getAllRecipes
+	getAllRecipes,
+	setCurrentPage
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

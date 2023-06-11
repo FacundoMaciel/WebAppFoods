@@ -44,6 +44,7 @@ export interface RecipesInterface {
 }
 
 export interface TheInitialState {
+  currentPage: number;
   recipes: RecipesInterface[];
   recipeDetails: RecipesInterface | {};
   recipesWithFilters: RecipesInterface[];
