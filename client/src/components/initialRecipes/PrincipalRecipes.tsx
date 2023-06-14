@@ -16,14 +16,12 @@ const PrincipalRecipes = (): JSX.Element => {
   // console.log(filteredRecipes);
 
   return (
-    <div className="text-center mt-10 text-gray-400 mx-24">
-      <div className="flex justify-center py-10">
-        <hr className="w-[90%]" />
-      </div>
-      <div className="flex ml-10">
+    <div className="text-center justify-center mt-10 text-white mx-24">
+      
+      <div className="flex mb-5 text-center justify-center">
         <h1 className="text-2xl">Most chosen Recipes</h1>
       </div>
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex justify-center items-center">
         {filteredRecipes.length ? (
           <div className="flex flex-row justify-center">
             {filteredRecipes.map((element) => (
@@ -36,6 +34,7 @@ const PrincipalRecipes = (): JSX.Element => {
                 dishTypes={element.dishTypes}
                 diets={element.diets}
                 summary={element.summary}
+                pricePerServing={element.pricePerServing}
               />
             ))}
           </div>

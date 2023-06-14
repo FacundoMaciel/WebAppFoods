@@ -23,7 +23,7 @@ const RecipesCarousel = (): JSX.Element => {
 
   return (
     <div className=" mb-10 py-10">
-      <h1 className="text-center text-2xl text-gray-400">Vegetarian Recipe Slider</h1>
+      <h1 className="text-center text-2xl text-[#cb9c7d]">Vegetarian Recipe Slider</h1>
       <div className="flex flex-col pt-4">
         <div className="flex flex-center items-center mb-5">
           <Swiper 

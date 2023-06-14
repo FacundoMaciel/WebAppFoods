@@ -1,3 +1,4 @@
+
 import { RecipesInterface } from "../../Interfaces/Interfaces"
 
 interface Props {
@@ -5,6 +6,7 @@ interface Props {
 }
 
 const RecipeDetails = (): JSX.Element => {
+
   return (
     <div>
       RecipeDetails

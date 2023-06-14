@@ -5,30 +5,70 @@ const FirstRecipes = ({
   id,
   image,
   title,
-  summary,
+  pricePerServing,
+  dishTypes,
 }: RecipesInterface): JSX.Element => {
+
+  let dishes = dishTypes.slice(0,2)
   return (
     <div
       key={id}
-      className="w-full max-w-sm bg-transparent text-gray-700 p-6 mx-4 justify-between items-center"
+      className="w-full max-w-sm bg-transparent text-white p-6 mx-4 justify-between items-center"
     >
-      <a href="#">
+      <div className="flex flex-col items-center pb-5 w-full px-3 text-center justify-center rounded-xl">
+      <a className="z-40" href="#">
         <img
-          className="w-full h-auto hover:shadow-xl duration-300"
+          className="w-52 h-52 border-4 mb-[-5%] border-white rounded-full hover:shadow-xl hover:shadow-gray-400 duration-300"
           src={image}
-          alt="product image"
+          alt="Recipe Image"
         />
       </a>
-      <div className=" pb-5 pt-5 text-center justify-center items-center">
-        <h5 className="text-xl  tracking-tight text-gray-400">
-          {title.slice(0, 23)}
+      <div className="bg-[#464753] rounded-md">
+        <h5 className="text-xl mt-4 tracking-tight text-white">
+          {title}
         </h5>
-        <div className="text-base font-extralight text-gray-600">
-          <p>{summary?.replace(/<[^>]*>/g, "").slice(0, 250)}...</p>
+        <div className="w-full h-10 text-base font-extralight text-gray-400">
+          <p>${pricePerServing}</p>
         </div>
+        <ul className="text-transform: capitalize text-[#accc7b] pb-6">
+          {dishes.map(el=>
+            <li>{el}</li>
+            )}
+        </ul>
+
       </div>
+      </div>
+      
     </div>
   );
 };
 
 export default FirstRecipes;
+
+{/* <div key={id} className="flex flex-col w-full bg-[#242424] border border-gray-200 rounded-lg shadow">
+      <div className="flex justify-end px-4 pt-4">
+       
+      </div>
+      <div className="flex flex-col items-center pb-10">
+        <img
+          className="w-24 h-24 mb-3 rounded-full shadow-lg"
+          src={image}
+          alt="NotFoundImage"
+        />
+        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+          {title.slice(0, 20)}...
+        </h5>
+        <span className="text-sm text-white">
+          ${pricePerServing}
+        </span>
+        <div className="flex mt-4 space-x-3 md:mt-6">
+          <ul>
+            {dishTypes.map(el => 
+              <li>
+                {el}
+              </li>
+              )}
+          </ul>
+        </div>
+      </div>
+    </div> */}

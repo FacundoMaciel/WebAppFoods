@@ -22,7 +22,8 @@ const SecondRecipes = (): JSX.Element => {
   const theAlert = ({ healthScore, title, image, summary }: TheModalRecipe) => {
     Swal.fire({
       width: "80%",
-      background: "#f0f0f0",
+      background: "#20222f",
+      color: "white",
       title: title,
       text: summary,
       imageUrl: image,
@@ -49,8 +50,8 @@ const SecondRecipes = (): JSX.Element => {
 
   return (
     <div className="text-center py-10">
-      <div className="flex ml-1 mb-4">
-        <h1 className="text-2xl text-gray-400">People's favorite Recipe</h1>
+      <div className="flex mb-5 text-center justify-center">
+        <h1 className="text-2xl text-white">People's favorite Recipe</h1>
       </div>
       <div className="flex">
         {principalRecipe
@@ -61,30 +62,30 @@ const SecondRecipes = (): JSX.Element => {
                     <img className="w-screen h-full" src={brussels} alt="" />
                   </Link>
                 </div>
-                <div className="p-5 w-[50%] h-full mb-3 font-normal text-gray-600 bg-gray-100">
-                  <h1 className="text-gray-400 text-xl">{rec.title}</h1>
+                <div className="p-5 w-[50%] h-full mb-3 font-normal text-[#accc7b] bg-[#464753]">
+                  <h1 className="text-white text-2xl">{rec.title}</h1>
                   {rec.diets.length ? (
-                    <ul className="text-transform: capitalize">
+                    <ul className="text-transform: capitalize text-xl">
                       Diets
                       {rec.diets.map((diet) => (
-                        <li key={diet} className="text-gray-400 ">
+                        <li key={diet} className="text-white text-base">
                           {diet}
                         </li>
                       ))}
                     </ul>
                   ) : null}
                   <hr />
-                  <h3 className="text-transform: capitalize"> Dish Types
-                    <h2 className="text-gray-400">{rec.dishTypes}</h2>
+                  <h3 className="text-transform: capitalize text-xl"> Dish Types
+                    <h2 className="text-white text-base">{rec.dishTypes}</h2>
                   </h3>
                   <hr />
-                  <h3 className="text-transform: capitalize"> Price per Serving
-                   <h2 className="text-gray-400">${rec.pricePerServing}</h2>
+                  <h3 className="text-transform: capitalize text-xl"> Price per Serving
+                   <h2 className="text-white text-base">${rec.pricePerServing}</h2>
                     </h3>
                 <button
                   onClick={handleOnClick}
                   type="button"
-                  className="bg-gray-200 p-2 rounded-lg text-gray-600 hover:scale-110 hover:bg-[#A1D6E2] hover:text-white hover:font-bold duration-300 mt-16"
+                  className="bg-transparent p-2 rounded-lg text-[#accc7b] hover:scale-105 hover:bg-[#accc7b] border-2 hover:text-[#20222f] hover:font-bold duration-300 mt-16"
                 >
                   More details
                 </button>
