@@ -7,7 +7,7 @@ import { SlSocialTwitter } from 'react-icons/sl';
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-center text-white justify-center items-center">
-      <div className="container pt-9 justify-center items-center text-center ml-14">
+      <div className="container w-full pt-9 justify-center items-center text-center ml-14">
         <div className="mb-9 flex justify-center items-center text-center">
           <a
             href="#!"

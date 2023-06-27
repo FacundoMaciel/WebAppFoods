@@ -13,27 +13,27 @@ const NavBar = (): JSX.Element => {
         </p>
       </Link>
       <ul className="flex w-full text-white justify-end h-10 mt-1 mr-20 text-base">
-        <li className="flex font-bold mx-4 mt-2 hover:scale-105 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+        <li className="flex font-bold mx-4 mt-2 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer ">
           Home
         </li>
-        <li className="flex font-bold mx-4 mt-2 hover:scale-105 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+        <li className="flex font-bold mx-4 mt-2 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer">
           About
         </li>
         <Link to={"/allRecipes"}>
-          <li className="flex font-bold mx-4 mt-2 hover:scale-105 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+          <li className="flex font-bold mx-4 mt-2 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer ">
             Recipes
           </li>
         </Link>
-        <li className="flex font-bold mx-4 mt-2 hover:scale-105 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+        <li className="flex font-bold mx-4 mt-2 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer ">
           Create Recipe
         </li>
-        <li className="flex mx-2 mt-2 hover:scale-110 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+        <li className="flex mx-2 mt-2 hover:scale-110 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer">
           <FaGithubSquare size={22} />
         </li>
-        <li className="flex mx-2 mt-2 hover:scale-110 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+        <li className="flex mx-2 mt-2 hover:scale-110 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer">
           <FaLinkedin size={22} />
         </li>
-        <li className="flex mx-2 mt-2 hover:scale-110 duration-200 hover:cursor-pointer hover:text-[#accc7b]">
+        <li className="flex mx-2 mt-2 hover:scale-110 hover:text-[#accc7b] transition duration-500 ease-in-out hover:cursor-pointer">
           <FaFolderOpen size={22} />
         </li>
       </ul>

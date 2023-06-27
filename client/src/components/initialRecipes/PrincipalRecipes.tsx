@@ -16,14 +16,13 @@ const PrincipalRecipes = (): JSX.Element => {
   // console.log(filteredRecipes);
 
   return (
-    <div className="text-center justify-center mt-10 text-white mx-24">
-      
+    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 text-center justify-center mt-10 text-white">
       <div className="flex mb-5 text-center justify-center">
         <h1 className="text-2xl">Most chosen Recipes</h1>
       </div>
       <div className="flex justify-center items-center">
         {filteredRecipes.length ? (
-          <div className="flex flex-row justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
             {filteredRecipes.map((element) => (
               <FirstRecipes
                 id={element.id}

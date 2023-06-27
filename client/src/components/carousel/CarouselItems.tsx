@@ -8,7 +8,7 @@ const CarouselItems = ({
   healthScore,
 }: RecipesInterface): JSX.Element => {
   return (
-    <div key={id} className="flex flex-wrap justify-center p-4 mb-5 m-5">
+    <div key={id} className="flex justify-center p-4 mb-5 m-5">
       <div className="w-96">
         <img
           className="w-full rounded-lg"

@@ -14,8 +14,8 @@ const Carousel = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 2,
+    slidesToScroll: 1,
     centerMode: true,
     centerPadding: "0px",
     autoplay: true,
@@ -23,7 +23,14 @@ const Carousel = () => {
     autoplaySpeed: 3000,
     responsive: [
         {
-          breakpoint: 576,
+          breakpoint: 350,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 600,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
@@ -32,8 +39,8 @@ const Carousel = () => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2
+            slidesToShow: 2,
+            slidesToScroll: 1
           }
         }
       ]
@@ -54,7 +61,7 @@ const Carousel = () => {
       <h1 className="text-center text-2xl text-white">
         Vegetarian Recipe Slider
       </h1>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center md:flex sm:flex lg:flex">
         <div className="w-full">
           <Slider {...settings}>
             {filteredVegetarianRecipes?.map((element) => (
