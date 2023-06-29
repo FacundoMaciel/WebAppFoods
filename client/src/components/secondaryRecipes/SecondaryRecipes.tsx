@@ -120,7 +120,7 @@ const SecondRecipes = (): JSX.Element => {
                     />
                   </Link>
                 </div>
-                <div className="p-5 w-[50%] h-full mb-3 font-normal text-[#accc7b]">
+                <div className="p-5 w-[50%] h-full mb-3 font-normal text-[#accc7b] bg-gray-900">
                   <h1 className="text-white text-2xl">{rec.title}</h1>
                   {rec.diets.length ? (
                     <ul className="text-transform: capitalize text-xl">

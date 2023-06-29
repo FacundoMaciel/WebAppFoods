@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = (): JSX.Element => {
   return (
-    <nav className="flex bg-gray-800 shadow-lg fixed w-full z-50 mb-10">
+    <nav className="flex bg-gray-900 shadow-lg fixed w-full z-50 mb-10">
       <Link to={"/"}>
         <p className="flex my-2 mx-2 text-gray-800 hover:scale-110 duration-300 rounded-md w-14 bg-[#accc7b]">
         <img src={logo} alt="" className="w-full p-1"/>

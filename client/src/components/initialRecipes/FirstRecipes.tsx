@@ -12,13 +12,13 @@ const FirstRecipes = ({
 }: RecipesInterface): JSX.Element => {
   let dishes = dishTypes.slice(0, 2);
   return (
-    <div key={id} className="">
+    <div key={id} className="shadow-2xl shadow-gray-900">
       <div className="">
         <div className="rounded overflow-hidden">
           <a href="#"></a>
-          <div className="relative">
+          <div className="relative hover:scale-105 transition duration-500 ease-in-out">
             <a href="#">
-              <img className="w-full" src={image} alt="Recipe" />
+              <img className="w-full " src={image} alt="Recipe" />
               <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
             </a>
 
@@ -32,24 +32,17 @@ const FirstRecipes = ({
             </div>
           </div>
           <div className="px-6 py-4">
-            <a
-              href="#"
-              className="font-semibold text-lg inline-block hover:text-[#accc7b] transition duration-500 ease-in-out"
+            <span
+              className="font-semibold p-2 rounded-md m-1 text-lg inline-block hover:text-[#accc7b] transition duration-500 ease-in-out"
             >
-              {title}
-            </a>
-            <hr className="" />
-            <ul className="text-[#accc7b] text-sm text-transform: capitalize">
+              {title.slice(0,23)}...
+            </span>
+            <ul className="text-[#accc7b] text-sm text-transform: capitalize bg-gray-900 rounded-md">
               {dishes.map((el) => (
                 <li key={el}>{el}</li>
               ))}
             </ul>
           </div>
-          {/* <div className="px-6 py-4 flex flex-row items-center">
-              <span className="py-1 text-sm font-regular text-[#accc7b] mr-1 flex flex-row items-center">
-                <span className="ml-1">${pricePerServing}</span>
-              </span>
-            </div> */}
         </div>
       </div>
     </div>
