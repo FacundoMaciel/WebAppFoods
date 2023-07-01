@@ -15,20 +15,20 @@ const CarouselItems = ({
           src={image}
           alt="NotFOund"
         />
-        <div className="place-content-center ml-2 px-5 pb-5">
-          <h3 className="text-white text-xl tracking-tight mt-3 flex flex-row justify-around">
-            {title.slice(0, 23)}
+        <div className="place-content-center text-center ml-2 px-5 pb-5">
+          <h3 className="text-gray-900 text-xl tracking-tight mt-3 flex flex-row justify-around">
+            {title.slice(0, 23)}...
           </h3>
-          <p className="text-center text-[#accc7b]"> Healthy Score </p> 
+          <p className="text-center text-gray-600"> Healthy Score </p> 
           <div className="flex items-center justify-center">
-            <span className="text-white text-lg w-[30%] rounded-lg px-1 py-1 text-center">
+            <span className="text-gray-900 text-lg w-[30%] rounded-lg px-1 py-1 text-center">
               {healthScore}
             </span>{" "}
           </div>
           <Link to={"/"}>
             <div className="flex items-center justify-center mt-3 mb-5">
-              <button className="bg-transparent p-2 rounded-lg text-white hover:scale-110 hover:bg-[#accc7b] border-2 hover:text-[#20222f] hover:font-bold duration-300">
-                More Info
+              <button className="bg-transparent p-2 rounded-lg text-gray-900 hover:scale-110 hover:bg-gray-200 border-2 hover:text-gray-600 duration-300">
+                View More 
               </button>
             </div>
           </Link>

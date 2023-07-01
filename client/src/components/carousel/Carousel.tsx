@@ -58,7 +58,7 @@ const Carousel = () => {
 
   return (
     <div>
-      <h1 className="text-center text-2xl text-white">
+      <h1 className="text-center text-2xl text-gray-900">
         Vegetarian Recipe Slider
       </h1>
       <div className="flex items-center justify-center md:flex sm:flex lg:flex">

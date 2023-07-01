@@ -1,6 +1,5 @@
 import { RecipesInterface } from "../../Interfaces/Interfaces";
 
-import icon from "../../assets/PageIc.png";
 
 const FirstRecipes = ({
   id,
@@ -12,32 +11,30 @@ const FirstRecipes = ({
 }: RecipesInterface): JSX.Element => {
   let dishes = dishTypes.slice(0, 2);
   return (
-    <div key={id} className="shadow-2xl shadow-gray-900">
-      <div className="">
-        <div className="rounded overflow-hidden">
+    <div key={id} className="">
+      <div className="w-[100%]">
+        <div className="rounded overflow-hidden mx-5">
           <a href="#"></a>
           <div className="relative hover:scale-105 transition duration-500 ease-in-out">
             <a href="#">
               <img className="w-full " src={image} alt="Recipe" />
-              <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
             </a>
-
-            <div className="absolute bottom-0 left-0 px-3 py-1 text-white text-sm hover:bg-white hover:text-[#20222f] transition duration-500 ease-in-out">
+            <div className="absolute bottom-0 right-0 px-3 py-1 text-gray-900 text-sm bg-white bg-opacity-25">
               ${pricePerServing}
             </div>
 
-            <div className="text-sm absolute top-0 right-0 px-4 text-white rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-[#20222f] transition duration-500 ease-in-out">
+            <div className="text-sm absolute top-0 right-0 px-4 text-gray-900 rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 border border-gray-700 bg-white bg-opacity-25">
               <span className="font-bold">{healthScore}</span>
               <small>Health Score</small>
             </div>
           </div>
           <div className="px-6 py-4">
             <span
-              className="font-semibold p-2 rounded-md m-1 text-lg inline-block hover:text-[#accc7b] transition duration-500 ease-in-out"
+              className="font-semibold p-2 rounded-md m-1 text-lg inline-block text-gray-900 transition duration-500 ease-in-out"
             >
               {title.slice(0,23)}...
             </span>
-            <ul className="text-[#accc7b] text-sm text-transform: capitalize bg-gray-900 rounded-md">
+            <ul className="text-gray-700 text-sm text-transform: capitalize">
               {dishes.map((el) => (
                 <li key={el}>{el}</li>
               ))}

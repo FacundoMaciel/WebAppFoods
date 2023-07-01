@@ -23,8 +23,8 @@ const SecondRecipes = (): JSX.Element => {
   const theAlert = ({ healthScore, title, image, summary }: TheModalRecipe) => {
     Swal.fire({
       width: "80%",
-      background: "#20222f",
-      color: "white",
+      background: "rgb(229 231 235)",
+      color: "rgb(17 24 39)",
       title: title,
       text: summary,
       imageUrl: image,
@@ -51,7 +51,7 @@ const SecondRecipes = (): JSX.Element => {
   return (
     <div className="text-center py-10">
       <div className="mb-5 text-center justify-center">
-        <h1 className="text-2xl text-white">People's favorite Recipe</h1>
+        <h1 className="text-2xl text-gray-900">People's favorite Recipe</h1>
       </div>
       {principalRecipe
         ? principalRecipe.map((rec) => (
@@ -63,15 +63,15 @@ const SecondRecipes = (): JSX.Element => {
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold text-white mb-2">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
                     {rec.title}
                   </h2>
-                  <h1 className="text-white leading-tight mb-4">
+                  <h1 className="text-gray-900 leading-tight mb-4">
                     {rec.diets.length ? (
-                      <ul className="text-transform: capitalize text-xl text-[#accc7b]">
+                      <ul className="text-transform: capitalize text-xl text-gray-600">
                         Diets
                         {rec.diets.map((diet) => (
-                          <li key={diet} className="text-white text-base">
+                          <li key={diet} className="text-gray-900 text-base">
                             {diet}
                           </li>
                         ))}
@@ -86,18 +86,18 @@ const SecondRecipes = (): JSX.Element => {
                         alt="Avatar"
                         className="w-8 h-8 rounded-full mr-2 object-cover"
                       />
-                      <span className="text-[#accc7b] font-semibold">
+                      <span className="text-gray-600 font-semibold">
                         {rec.dishTypes}
                       </span>
                     </div>
-                    <span className="text-[#accc7b]">
+                    <span className="text-gray-600">
                       Healthy Score: {rec.healthScore}
                     </span>
                   </div>
                   <button
                     onClick={handleOnClick}
                     type="button"
-                    className="bg-transparent p-2 rounded-lg text-[#accc7b] hover:scale-105 hover:bg-[#accc7b] border-2 hover:text-[#20222f] transition duration-500 ease-in-out hover:font-bold mt-16"
+                    className="bg-transparent p-2 rounded-lg text-gray-600 hover:scale-105 hover:bg-gray-600 border-2 hover:text-[#20222f] transition duration-500 ease-in-out hover:font-bold mt-16"
                   >
                     More details
                   </button>
@@ -111,55 +111,52 @@ const SecondRecipes = (): JSX.Element => {
         {principalRecipe
           ? principalRecipe.map((rec) => (
               <div key={rec.id} className="flex">
-                <div className="w-[50%] md:shrink-0">
+                <div className="w-[55%] md:shrink-0">
                   <Link to={"/"}>
                     <img
-                      className="w-48 h-full md:h-full md:w-screen"
+                      className="w-52 h-full md:h-full md:w-screen"
                       src={brussels}
                       alt=""
                     />
                   </Link>
                 </div>
-                <div className="p-5 w-[50%] h-full mb-3 font-normal text-[#accc7b] bg-gray-900">
-                  <h1 className="text-white text-2xl">{rec.title}</h1>
+                <div className="p-5 w-[50%] h-full mb-3 font-normal text-gray-600 bg-gray-200">
+                  <h1 className="text-gray-900 text-2xl">{rec.title}</h1>
                   {rec.diets.length ? (
                     <ul className="text-transform: capitalize text-xl">
                       Diets
                       {rec.diets.map((diet) => (
-                        <li key={diet} className="text-white text-base">
+                        <li key={diet} className="text-gray-900 text-base">
                           {diet}
                         </li>
                       ))}
                     </ul>
                   ) : null}
-                  <hr />
+                  <hr className="border-gray-700" />
                   <h3 className="text-transform: capitalize text-xl">
                     {" "}
                     Dish Types
-                    <p className="text-white text-base">{rec.dishTypes}</p>
+                    <p className="text-gray-900 text-base">{rec.dishTypes}</p>
                   </h3>
-                  <hr />
+                  <hr className="border-gray-700"/>
                   <h3 className="text-transform: capitalize text-xl">
                     {" "}
                     Price per Serving
-                    <p className="text-white text-base">
+                    <p className="text-gray-900 text-base">
                       ${rec.pricePerServing}
                     </p>
                   </h3>
                   <button
                     onClick={handleOnClick}
                     type="button"
-                    className="bg-transparent p-2 rounded-lg text-[#accc7b] hover:scale-105 hover:bg-[#accc7b] border-2 hover:text-[#20222f] hover:font-bold duration-300 mt-16"
+                    className="bg-transparent p-2 border-gray-700 rounded-lg text-gray-900 hover:scale-95 hover:bg-gray-700 border-2 hover:text-white hover:font-bold duration-300 mt-16"
                   >
-                    More details
+                    View more
                   </button>
                 </div>
               </div>
             ))
           : null}
-      </div>
-      <div className="flex justify-center mt-8 pt-8">
-        <hr className="w-[90%]" />
       </div>
     </div>
   );

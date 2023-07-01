@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllRecipesThunk } from "../../store/slices/recipes/thunk";
 import FirstRecipes from "./FirstRecipes";
 
+
 const PrincipalRecipes = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
   const { recipes } = useSelector((state: RootState) => state.recipes);
@@ -16,13 +17,13 @@ const PrincipalRecipes = (): JSX.Element => {
   // console.log(filteredRecipes);
 
   return (
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 text-center justify-center mt-10 text-white">
-      <div className="flex mb-5 text-center justify-center">
+    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 text-center justify-center mt-10">
+      <div className="flex mb-5 text-center justify-center text-gray-900">
         <h1 className="text-2xl">Most Popular Recipes</h1>
       </div>
       <div className="flex justify-center items-center">
         {filteredRecipes.length ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-16">
             {filteredRecipes.map((element) => (
               <FirstRecipes
                 id={element.id}
@@ -40,9 +41,6 @@ const PrincipalRecipes = (): JSX.Element => {
         ) : (
           "Loading..."
         )}
-      </div>
-      <div className="flex justify-center py-10">
-        <hr className="w-[90%]" />
       </div>
     </div>
   );
