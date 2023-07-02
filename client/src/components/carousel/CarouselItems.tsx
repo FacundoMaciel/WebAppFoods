@@ -16,8 +16,11 @@ const CarouselItems = ({
           alt="NotFOund"
         />
         <div className="place-content-center text-center ml-2 px-5 pb-5">
-          <h3 className="text-gray-900 text-xl tracking-tight mt-3 flex flex-row justify-around">
+          <h3 className="text-gray-900 text-xl hidden md:flex tracking-tight mt-3 flex-row justify-around">
             {title.slice(0, 23)}...
+          </h3>
+          <h3 className="text-gray-900 text-xl md:hidden tracking-tight mt-3 flex flex-row justify-around">
+            {title}
           </h3>
           <p className="text-center text-gray-600"> Healthy Score </p> 
           <div className="flex items-center justify-center">
@@ -27,7 +30,7 @@ const CarouselItems = ({
           </div>
           <Link to={"/"}>
             <div className="flex items-center justify-center mt-3 mb-5">
-              <button className="bg-transparent p-2 rounded-lg text-gray-900 hover:scale-110 hover:bg-gray-200 border-2 hover:text-gray-600 duration-300">
+              <button className="bg-transparent p-2 border-gray-700 rounded-lg text-gray-900 hover:scale-95 hover:bg-gray-700 border-2 hover:text-white hover:font-bold duration-300">
                 View More 
               </button>
             </div>

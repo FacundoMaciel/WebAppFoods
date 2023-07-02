@@ -17,7 +17,7 @@ const HeaderComponent = () => {
               Create Your Unique Recipe!
             </p>
             <Link to={"/allRecipes"}>
-            <button className="text-base mt-4 p-2 shadow-2xl shadow-black bg-gray-900 text-white rounded-md hover:bg-white hover:text-gray-900 hover:scale-105 trasition duration-300 ease-in-out
+            <button className="text-base hover:animate-pulse font-bold mt-4 p-2 shadow-2xl shadow-black bg-gray-900 text-white rounded-md hover:bg-white hover:text-gray-900 hover:scale-105 trasition duration-300 ease-in-out
             md:text-xl
             ">
               View All Recipes
@@ -29,7 +29,7 @@ const HeaderComponent = () => {
           <h1 className="text-xl mt-10 text-gray-900">
             Soy Henry Food Page
             <Link to={"/allRecipes"}>
-            <button type="button" className="text-sm p-2 shadow-2xl shadow-black bg-gray-900 text-white rounded-md hover:bg-white hover:text-gray-900 hover:scale-105 trasition duration-300 ease-in-out">
+            <button type="button" className="font-bold text-sm p-2 shadow-2xl shadow-black bg-gray-900 text-white rounded-md hover:bg-white hover:text-gray-900 hover:scale-105 trasition duration-300 ease-in-out">
               View All Recipes
             </button>
             </Link>
