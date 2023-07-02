@@ -18,7 +18,7 @@ const PrincipalRecipes = (): JSX.Element => {
 
   return (
     <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 text-center justify-center mt-10">
-      <div className="flex mb-5 text-center justify-center text-gray-900">
+      <div className="flex mb-5 text-center justify-center text-gray-900 font-bold">
         <h1 className="text-2xl">Most Popular Recipes</h1>
       </div>
       <div className="flex justify-center items-center">

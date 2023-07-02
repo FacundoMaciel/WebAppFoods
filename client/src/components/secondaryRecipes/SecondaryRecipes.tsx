@@ -51,7 +51,7 @@ const SecondRecipes = (): JSX.Element => {
   return (
     <div className="text-center py-10">
       <div className="mb-5 text-center justify-center">
-        <h1 className="text-2xl text-gray-900">People's favorite Recipe</h1>
+        <h1 className="text-2xl text-gray-900 font-bold">People's favorite Recipe</h1>
       </div>
       {principalRecipe
         ? principalRecipe.map((rec) => (

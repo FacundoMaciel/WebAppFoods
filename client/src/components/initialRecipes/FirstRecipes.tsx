@@ -29,8 +29,8 @@ const FirstRecipes = ({
             </div>
           </div>
           <div className="px-6 py-4">
-            <span
-              className="font-semibold p-2 rounded-md m-1 text-lg inline-block text-gray-900 transition duration-500 ease-in-out"
+            <span title={title}
+              className="font-semibold p-2 rounded-md m-1 text-lg inline-block text-gray-900 cursor-help"
             >
               {title.slice(0,23)}...
             </span>

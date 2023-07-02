@@ -10,7 +10,7 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=aeb9cd8bc26f489ca0caa69b44be84ff&addRecipeInformation=true&number=100'
+            'https://api.spoonacular.com/recipes/complexSearch?apiKey=82122bdc58f7437c94c3738b1f5413d9&addRecipeInformation=true&number=100'
         ),
       );
       // console.log(response.data.results.map(el => el.dishTypes));
