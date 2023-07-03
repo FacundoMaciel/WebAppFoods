@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../store/store";
 
 import Recipes from "../../components/recipes/Recipes";
-import RecipeDetails from "../../components/recipeDetails/RecipeDetails";
 import Paginated from "../../components/paginated/Paginated";
+import SearchBar from "../../components/searchBar/searchBar";
 
 const AllRecipes = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -43,6 +43,7 @@ const AllRecipes = () => {
   return (
     <div className="flex bg-gray-300 p-20">
       <section className="border w-[40%] my-10 ml-8 bg-white rounded-md">
+       <SearchBar />
         <div className="flex justify-center">{recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}</div>
         <Paginated
           recipes={recipesPerPage}
@@ -55,7 +56,7 @@ const AllRecipes = () => {
         />
       </section>
       <section className="flex justify-center text-center border w-[55%] my-10 mx-5 bg-white rounded-md">
-        <RecipeDetails />
+        {/* Detalles de la receta seleccionada */}
       </section>
     </div>
   );

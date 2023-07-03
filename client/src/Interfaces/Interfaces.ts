@@ -43,6 +43,21 @@ export interface RecipesInterface {
   weightWatcherSmartPoints?: number;
 }
 
+export interface RecipesDetailsInterface {
+  analyzedInstructions?: {}[];
+  cheap?: boolean;
+  cookingMinutes?: number;
+  diets: dietsTypes[] | string[];
+  dishTypes: dishTypes[] | string[];
+  healthScore: number;
+  id: number;
+  image: string;
+  summary: string;
+  title: string;
+  vegan?: boolean;
+  vegetarian?: boolean;
+}
+
 export interface TheInitialState {
   currentPage: number;
   recipes: RecipesInterface[];

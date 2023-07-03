@@ -3,8 +3,6 @@
 import SecondaryRecipes from "../../components/secondaryRecipes/SecondaryRecipes";
 import PrincipalRecipes from "../../components/initialRecipes/PrincipalRecipes";
 import HeaderComponent from "../../components/headerComponent/HeaderComponent";
-// import RecipesCarousel from "../../components/recipesCarousel/RecipesCarousel";
-import Footer from "../../components/footer/Footer";
 import Carousel from "../../components/carousel/Carousel";
 
 const Home = (): JSX.Element => {
@@ -25,7 +23,6 @@ const Home = (): JSX.Element => {
       <div className="inline-flex items-center justify-center w-full mt-10">
         <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-300" />
       </div>
-      <Footer />
     </>
   );
 };

@@ -10,7 +10,7 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=6c6e25f8eb5f44f598b90845c9f0b177&addRecipeInformation=true&number=100'
+            'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100'
         ),
       );
       // console.log(response.data.results.map(el => el.dishTypes));
@@ -24,9 +24,7 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-          'https://api.spoonacular.com/recipes/complexSearch?apiKey=445704158a1842839fee0c14930bc5cf&addRecipeInformation=true&number=100' ||
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=5c71ebdb30554aba91298b08f6862631&addRecipeInformation=true&number=100' ||
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=23e6cf8f890f48b997d1ef1dc5f90a81&addRecipeInformation=true&number=100',
+          'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100'
         ),
       );
       let recipeName = response.data.results.filter((el) =>
@@ -45,9 +43,7 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-          'https://api.spoonacular.com/recipes/complexSearch?apiKey=452a563821c744878739361bb5f12948&addRecipeInformation=true&number=100' ||
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100' ||
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=7f13483e425749b7986929d16667cd8b&addRecipeInformation=true&number=100',
+          'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100'
         ),
       );
       let recipeID = response.data.results.filter(el => el.id == id);

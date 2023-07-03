@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { RecipesInterface } from "../../Interfaces/Interfaces";
 
 
@@ -16,9 +17,11 @@ const FirstRecipes = ({
         <div className="rounded overflow-hidden mx-5">
           <a href="#"></a>
           <div className="relative hover:scale-105 transition duration-500 ease-in-out">
-            <a href="#">
+            
+            <Link to={`recipeDetails/${id}`} key={id}>
               <img title={title} className="w-full " src={image} alt="Recipe" />
-            </a>
+            </Link>
+            
             <div className="absolute bottom-0 right-0 px-3 py-1 text-gray-900 text-sm bg-white bg-opacity-25">
               ${pricePerServing}
             </div>
