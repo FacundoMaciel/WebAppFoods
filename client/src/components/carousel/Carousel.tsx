@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
-import { getAllRecipesThunk } from "../../store/slices/recipes/thunk";
-import { AppDispatch, RootState } from "../../store/store";
+import { useSelector } from "react-redux";
+
+import { RootState } from "../../store/store";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -72,12 +71,7 @@ const Carousel = () => {
       ]
   };
 
-  const dispatch: AppDispatch = useDispatch();
   const { recipes } = useSelector((state: RootState) => state.recipes);
-
-  useEffect(() => {
-    dispatch(getAllRecipesThunk());
-  }, [dispatch]);
 
   const vegetarianRecipes = recipes.filter((r) => r.vegetarian == true);
   const filteredVegetarianRecipes = vegetarianRecipes.slice(5, 15);

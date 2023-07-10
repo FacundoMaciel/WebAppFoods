@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/chefIcon.avif";
 
@@ -9,6 +9,7 @@ import { FaBars } from "react-icons/fa";
 const NavBar = (): JSX.Element => {
   const [navBar, setNavBar] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate()
 
   const bgNavBarChange = () => {
     if (window.scrollY >= 650) {
@@ -24,11 +25,11 @@ const NavBar = (): JSX.Element => {
     <>
       {navBar ? (
         <nav className="flex bg-gray-200 transition duration-500 ease-in-out shadow-lg fixed w-full z-50 mb-10 justify-between">
-          <Link to={"/"}>
-            <p className="flex my-2 mx-2 text-gray-800 hover:scale-110 duration-300 rounded-md w-10 bg-gray-600">
-              <img src={logo} alt="" className="w-full p-1" />
-            </p>
-          </Link>
+            <button 
+            onClick={()=>navigate("/")}
+            className="flex my-2 mx-2 text-gray-800 hover:scale-110 duration-300 rounded-md w-10 bg-gray-600">     
+              <img src={logo} alt="" className="w-full p-1" />         
+            </button>
           <ul className="hidden md:flex w-full text-gray-500 justify-end h-10 mt-1 mr-20 text-base">
             <Link to={"/"}>
               <li className="flex font-bold mx-4 mt-2 hover:text-gray-900 transition duration-500 ease-in-out hover:cursor-pointer ">

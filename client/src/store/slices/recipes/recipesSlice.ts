@@ -21,10 +21,13 @@ const recipesSlice = createSlice({
             state.recipeDetails = action.payload
         },
 		getRecipeByName: (state, action) => {
-            state.recipesWithFilters = action.payload
+            state.recipes = action.payload
         },
 		setCurrentPage: (state, action) => {
             state.currentPage = action.payload
+        },
+		clearDetails: (state) => {
+            state.recipeDetails = {}
         },
 	},
 });
@@ -33,7 +36,8 @@ export const {
 	getAllRecipes,
 	getRecipeById,
 	setCurrentPage,
-	getRecipeByName
+	getRecipeByName,
+	clearDetails
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

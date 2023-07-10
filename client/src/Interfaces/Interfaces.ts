@@ -47,24 +47,24 @@ export interface RecipesDetailsInterface {
   analyzedInstructions?: {}[];
   cheap?: boolean;
   cookingMinutes?: number;
-  diets: dietsTypes[] | string[];
-  dishTypes: dishTypes[] | string[];
-  healthScore: number;
-  id: number;
-  image: string;
-  summary: string;
-  title: string;
+  diets?: dietsTypes[] | string[];
+  dishTypes?: dishTypes[] | string[];
+  healthScore?: number;
+  id?: number;
+  image?: string;
+  summary?: string;
+  title?: string;
   vegan?: boolean;
   vegetarian?: boolean;
 }
 
 export interface TheInitialState {
-  currentPage: number;
-  recipes: RecipesInterface[];
-  recipeDetails: RecipesInterface | {};
-  recipesWithFilters: RecipesInterface[];
-  favorites: RecipesInterface[];
-  diets: dietsTypes[] | string[];
+  currentPage: number
+  recipes: RecipesInterface[]
+  recipeDetails: RecipesInterface | Record<string>
+  recipesWithFilters: RecipesInterface[]
+  favorites: RecipesInterface[]
+  diets: dietsTypes[] | string[]
 }
 
 export type dietsTypes =

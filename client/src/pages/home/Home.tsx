@@ -1,11 +1,21 @@
 // import React from 'react';
-
+import { useEffect } from "react";
+import { getAllRecipesThunk } from "../../store/slices/recipes/thunk";
 import SecondaryRecipes from "../../components/secondaryRecipes/SecondaryRecipes";
 import PrincipalRecipes from "../../components/initialRecipes/PrincipalRecipes";
 import HeaderComponent from "../../components/headerComponent/HeaderComponent";
 import Carousel from "../../components/carousel/Carousel";
+import { AppDispatch } from "../../store/store";
+import { useDispatch } from "react-redux";
 
 const Home = (): JSX.Element => {
+
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllRecipesThunk());
+  }, []);
+
   return (
     <>
       <HeaderComponent />

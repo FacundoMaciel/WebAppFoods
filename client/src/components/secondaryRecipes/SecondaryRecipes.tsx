@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
-import { AppDispatch, RootState } from "../../store/store";
-import { getAllRecipesThunk } from "../../store/slices/recipes/thunk";
+import { useSelector } from "react-redux";
+
+import { RootState } from "../../store/store";
 import brussels from "../../assets/brussels.jpg";
 import icon from "../../assets/PageIc.png";
 
@@ -11,12 +9,8 @@ import Swal from "sweetalert2";
 import { TheModalRecipe } from "../../Interfaces/Interfaces";
 
 const SecondRecipes = (): JSX.Element => {
-  const dispatch: AppDispatch = useDispatch();
-  const { recipes } = useSelector((state: RootState) => state.recipes);
 
-  useEffect(() => {
-    dispatch(getAllRecipesThunk());
-  }, [dispatch]);
+  const { recipes } = useSelector((state: RootState) => state.recipes);
 
   let principalRecipe = recipes.filter((el) => el.diets.length).slice(12, 13);
 
@@ -112,13 +106,11 @@ const SecondRecipes = (): JSX.Element => {
           ? principalRecipe.map((rec) => (
               <div key={rec.id} className="flex">
                 <div className="w-[55%] md:shrink-0">
-                  <Link to={"/"}>
                     <img
                       className="w-52 h-full md:h-full md:w-screen"
                       src={brussels}
                       alt=""
                     />
-                  </Link>
                 </div>
                 <div className="p-5 w-[50%] h-full mb-3 font-normal text-gray-600 bg-gray-200">
                   <h1 className="text-gray-900 text-2xl">{rec.title}</h1>

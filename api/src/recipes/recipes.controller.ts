@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get, Param, Delete } from '@nestjs/common';
+import { Body, Controller, Post, Get, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { RecipesService } from './recipes.service';
 import { ProviderService } from 'src/provider/provider.service';
@@ -20,14 +20,19 @@ export class RecipesController {
     return this.recipesService.getRecipesDB(); // Invocación al servicio para resolver la petición
   }
 
-  @Get('recipe/:name')
-  public async findOneRecipe(@Param('name') name: string) {
-    return this.providerService.getOneRecipe(name);
-  }
-
-  @Get(':id')
-  public async findOneIDRecipe(@Param('id') id: number) {
+  @Get('recipe/:id')
+  public async findOneRecipe(@Param('id', ParseIntPipe) id: number) {
     return this.providerService.getIdRecipe(id);
+  }
+  
+  // @Get(':id')
+  // public async findOneIDRecipe(@Param('id') id: number) {
+  //   return this.providerService.getIdRecipe(id);
+  // }
+  
+  @Get('recipe')
+  public async findOneIDRecipe(@Query('name') name: string) {
+    return this.providerService.getOneRecipe(name);
   }
 
   @Post() //Agregar la ruta 'createRecipe'

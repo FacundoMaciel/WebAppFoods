@@ -9,9 +9,9 @@ export class ProviderService {
   public async getAllRecipes() {
     try {
       const response = await firstValueFrom(
-        this.httpService.get(
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100'
-        ),
+          this.httpService.get(
+            'https://api.spoonacular.com/recipes/complexSearch?apiKey=8231a6d489504e748d28c6f660be4c93&addRecipeInformation=true&number=100',
+          ),
       );
       // console.log(response.data.results.map(el => el.dishTypes));
       return response.data;
@@ -24,10 +24,10 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-          'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100'
+          'https://api.spoonacular.com/recipes/complexSearch?apiKey=8231a6d489504e748d28c6f660be4c93&addRecipeInformation=true&number=100',
         ),
       );
-      let recipeName = response.data.results.filter((el) =>
+      let recipeName = response?.data?.results?.filter((el) =>
         el.title.toLowerCase().includes(name.toLowerCase()),
       );
       //  console.log(response.data.results.map(el => el.title));
@@ -43,10 +43,10 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-          'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100'
+          'https://api.spoonacular.com/recipes/complexSearch?apiKey=8231a6d489504e748d28c6f660be4c93&addRecipeInformation=true&number=100',
         ),
       );
-      let recipeID = response.data.results.filter(el => el.id == id);
+      let recipeID = response.data.results.filter((el) => el.id == id);
       // console.log(response.data.results.map(el => el.id));
       // console.log(recipeID);
       console.log(id);

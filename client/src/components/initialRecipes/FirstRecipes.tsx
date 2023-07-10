@@ -18,8 +18,8 @@ const FirstRecipes = ({
           <a href="#"></a>
           <div className="relative hover:scale-105 transition duration-500 ease-in-out">
             
-            <Link to={`recipeDetails/${id}`} key={id}>
-              <img title={title} className="w-full " src={image} alt="Recipe" />
+            <Link to={`recipeDetails/${id}`} >
+              <img className="w-full " src={image} alt="Recipe" />
             </Link>
             
             <div className="absolute bottom-0 right-0 px-3 py-1 text-gray-900 text-sm bg-white bg-opacity-25">

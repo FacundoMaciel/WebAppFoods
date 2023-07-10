@@ -36,14 +36,44 @@ const AllRecipes = () => {
 
   useEffect(() => {
     dispatch(getAllRecipesThunk());
-  }, [dispatch]);
+  }, []);
 
   //  console.log(recipes);
 
   return (
-    <div className="flex bg-gray-300 p-20">
+    <div className="pt-20 bg-gray-200">
+      <div className="flex bg-gray-200 justify-center shadow-2xl">
+        <section className="border w-[40%] my-5 ml-8 bg-white rounded-md shadow-2xl">
+          <div className="flex justify-center">
+            <SearchBar />
+          </div>
+          <div className="flex justify-center">
+            {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
+          </div>
+          <Paginated
+            recipes={recipesPerPage}
+            paginated={paginated}
+            recipesPerPage={recipesPerPage}
+            thePage={thePage}
+            nextPage={nextPage}
+            previousPage={previousPage}
+            currentPage={currentPage}
+          />
+        </section>
+        <section className="flex justify-center text-center border w-[55%] my-5 mx-5 bg-white rounded-md shadow-2xl">
+          <div className="w-auto h-auto"></div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default AllRecipes;
+
+{
+  /* <div className="flex bg-gray-300 p-20">
       <section className="border w-[40%] my-10 ml-8 bg-white rounded-md">
-       <SearchBar />
+       
         <div className="flex justify-center">{recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}</div>
         <Paginated
           recipes={recipesPerPage}
@@ -55,11 +85,11 @@ const AllRecipes = () => {
           currentPage={currentPage}
         />
       </section>
+      <SearchBar />
       <section className="flex justify-center text-center border w-[55%] my-10 mx-5 bg-white rounded-md">
-        {/* Detalles de la receta seleccionada */}
+      <div className="w-auto h-auto">
+        
+      </div>
       </section>
-    </div>
-  );
-};
-
-export default AllRecipes;
+    </div> */
+}

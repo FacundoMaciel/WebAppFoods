@@ -19,9 +19,9 @@ export function getAllRecipesThunk(): AppThunk {
 export function getRecipeByIdThunk(id: string): AppThunk {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/${id}`);
-      let results = response.data.results;
-      dispatch(getRecipeById(results));
+      const response = await axios.get(`http://localhost:3000/api/recipe/${id}`);
+      // let results = response.data.results;
+      dispatch(getRecipeById(response.data[0]));
       // console.log(results);
     } catch (e) {
       console.error(e);
@@ -32,10 +32,9 @@ export function getRecipeByIdThunk(id: string): AppThunk {
 export function getRecipeByNameThunk(name: string): AppThunk {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/recipe/${name}`);
-      let results = response.data.results;
-      dispatch(getRecipeByName(results));
-      // console.log(results);
+      const response = await axios.get(`http://localhost:3000/api/recipe?name=${name}`);
+      dispatch(getRecipeByName(response.data));
+      console.log(response.data);
     } catch (e) {
       console.error(e);
     }

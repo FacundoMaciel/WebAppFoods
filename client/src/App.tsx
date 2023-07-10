@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
 } from "react-router-dom";
 import Home from "./pages/home/Home";
 import RecipeDetails from "./components/recipeDetails/RecipeDetails";
@@ -18,8 +17,8 @@ function App(): JSX.Element {
         <Routes>
           <Route element={<Home />} path="/" />
           <Route element={<AllRecipes />} path="/allRecipes" />
-          <Route element={<RecipeDetails />} path="/recipeDetails" />
-          <Route element={<Navigate to="/" />} path="*" />
+          <Route element={<RecipeDetails />} path="/recipeDetails/:id" />
+          {/* <Route element={<Navigate to="/" />} path="*" /> */}
         </Routes>
         <Footer />
       </Router>

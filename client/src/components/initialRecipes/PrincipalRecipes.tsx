@@ -1,17 +1,13 @@
-import { useEffect } from "react";
-import { AppDispatch, RootState } from "../../store/store";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllRecipesThunk } from "../../store/slices/recipes/thunk";
+
+import { RootState } from "../../store/store";
+import { useSelector } from "react-redux";
+
 import FirstRecipes from "./FirstRecipes";
 
 
 const PrincipalRecipes = (): JSX.Element => {
-  const dispatch: AppDispatch = useDispatch();
-  const { recipes } = useSelector((state: RootState) => state.recipes);
 
-  useEffect(() => {
-    dispatch(getAllRecipesThunk());
-  }, [dispatch]);
+  const { recipes } = useSelector((state: RootState) => state.recipes);
 
   let filteredRecipes = recipes.slice(0, 3);
   // console.log(filteredRecipes);
