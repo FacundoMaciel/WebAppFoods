@@ -1,35 +1,48 @@
 import { Link } from "react-router-dom";
-import { RecipesInterface } from "../../Interfaces/Interfaces"
+import { RecipesInterface } from "../../Interfaces/Interfaces";
 
-
-const Recipe = ({id, healthScore, title, image}: RecipesInterface): JSX.Element => {
-    
+const Recipe = ({
+  id,
+  healthScore,
+  title,
+  image,
+  aggregateLikes,
+  readyInMinutes
+}: RecipesInterface): JSX.Element => {
   return (
-    <div>
-      <Link to="#">
-      <div
-        key={id}
-        
-        className="flex flex-col items-center bg-white md:flex-row md:max-w-xl hover:bg-gray-300 focus:bg-[#A1D6E2]"
-      >
-        <img
-          className="object-cover w-full p-2 rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-          src={image}
-          alt="Not Found"
-        />
-        <div className="flex flex-col justify-between p-4 leading-normal">
-          <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-700">
-            {title.slice(0, 22)}...
-          </h5>
-          <p className="mb-3 font-normal text-[#1995AD] text-base">
-            Health Score ({healthScore})
-          </p>
+    <div key={id} className="">
+      <div className="w-[100%]">
+        <div className="rounded overflow-hidden mx-5">
+          <small>Health score: {healthScore}</small>
+          <div className="relative hover:scale-105 transition duration-500 ease-in-out">
+            <Link to={`recipeDetails/${id}`}>
+              <img className="w-full " src={image} alt="Recipe" />
+            </Link>
+            <div className="absolute bottom-0 font-bold right-0 px-3 py-1 text-gray-900 text-sm bg-white">
+              Ready in {readyInMinutes} minutes
+            </div>
+            <div className="text-sm absolute top-0 right-0 px-4 text-gray-900 rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 border border-gray-700 bg-white">
+              <span className="font-bold">{aggregateLikes}</span>
+              <small className="font-bold">Likes</small>
+            </div>
+          </div>
+          <div className="px-6 py-4">
+            <span className="font-semibold hidden md:flex p-2 rounded-md m-1 text-sm text-gray-900">
+              {title}
+            </span>
+            <span className="font-semibold p-2 flex md:hidden rounded-md m-1 text-lg text-gray-900">
+              {title}
+            </span>
+            {/* <ul className="text-gray-700 text-sm text-transform: capitalize">
+            {dishes.map((el) => (
+              <li key={el}>{el}</li>
+            ))}
+          </ul> */}
+          </div>
         </div>
       </div>
-      </Link>
-      <hr />
     </div>
   );
-}
+};
 
-export default Recipe
+export default Recipe;

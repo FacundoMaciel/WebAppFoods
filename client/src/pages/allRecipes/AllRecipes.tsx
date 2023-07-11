@@ -7,17 +7,18 @@ import type { AppDispatch, RootState } from "../../store/store";
 
 import Recipes from "../../components/recipes/Recipes";
 import Paginated from "../../components/paginated/Paginated";
-import SearchBar from "../../components/searchBar/searchBar";
+import FiltersAndSearch from "./FiltersAndSearch";
+
+import banner from "../../assets/images.png"
 
 const AllRecipes = () => {
   const dispatch: AppDispatch = useDispatch();
   const { recipes, currentPage } = useSelector(
     (state: RootState) => state.recipes
   );
-  // const [selection, setSelection] = useState("Loading");
 
   let [paginated, setPaginated] = useState(1);
-  let [recipesPerPage] = useState(10);
+  let [recipesPerPage] = useState(12);
 
   const lastRecipeLocation = paginated * recipesPerPage;
   const firstRecipeLocation = lastRecipeLocation - recipesPerPage;
@@ -41,15 +42,18 @@ const AllRecipes = () => {
   //  console.log(recipes);
 
   return (
-    <div className="pt-20 bg-gray-200">
-      <div className="flex bg-gray-200 justify-center shadow-2xl">
-        <section className="border w-[40%] my-5 ml-8 bg-white rounded-md shadow-2xl">
-          <div className="flex justify-center">
-            <SearchBar />
-          </div>
-          <div className="flex justify-center">
-            {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
-          </div>
+    <>
+      <div className="flex text-center justify-center items-center w-full h-screen opacity-90">
+        <div className="flex w-full h-screen justify-start text-center items-center">
+          <img className="" src={banner} alt=""/>
+          <h1 className="absolute center text-3xl p-4 text-gray-200 md:text-4xl lg:text-6xl">
+            All Recipes
+          </h1>
+        </div>
+      </div>
+      <div className="flex items-center w-full">
+        <FiltersAndSearch />
+      </div>
           <Paginated
             recipes={recipesPerPage}
             paginated={paginated}
@@ -59,37 +63,11 @@ const AllRecipes = () => {
             previousPage={previousPage}
             currentPage={currentPage}
           />
-        </section>
-        <section className="flex justify-center text-center border w-[55%] my-5 mx-5 bg-white rounded-md shadow-2xl">
-          <div className="w-auto h-auto"></div>
-        </section>
+      <div className="flex justify-center items-center">
+            {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
       </div>
-    </div>
+    </>
   );
 };
 
 export default AllRecipes;
-
-{
-  /* <div className="flex bg-gray-300 p-20">
-      <section className="border w-[40%] my-10 ml-8 bg-white rounded-md">
-       
-        <div className="flex justify-center">{recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}</div>
-        <Paginated
-          recipes={recipesPerPage}
-          paginated={paginated}
-          recipesPerPage={recipesPerPage}
-          thePage={thePage}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          currentPage={currentPage}
-        />
-      </section>
-      <SearchBar />
-      <section className="flex justify-center text-center border w-[55%] my-10 mx-5 bg-white rounded-md">
-      <div className="w-auto h-auto">
-        
-      </div>
-      </section>
-    </div> */
-}

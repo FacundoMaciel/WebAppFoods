@@ -13,9 +13,7 @@ import { clearDetails } from "../../store/slices/recipes/recipesSlice";
 const RecipeDetails: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const { id } = useParams();
-  //   const theRecipe: RecipesInterface = useSelector(
-  //     (state: RootState) => state.recipes.recipeDetails
-  // )
+  
   const theRecipe: RecipesInterface = useSelector(
     (state: RootState) => state.recipes.recipeDetails
   );
@@ -28,7 +26,7 @@ const RecipeDetails: React.FC = () => {
     };
   }, []);
 
-  console.log(theRecipe);
+  // console.log(theRecipe);
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gray-200 pt-20 text-center text-gray-900">

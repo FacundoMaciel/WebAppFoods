@@ -15,17 +15,13 @@ const FirstRecipes = ({
     <div key={id} className="">
       <div className="w-[100%]">
         <div className="rounded overflow-hidden mx-5">
-          <a href="#"></a>
           <div className="relative hover:scale-105 transition duration-500 ease-in-out">
-            
             <Link to={`recipeDetails/${id}`} >
               <img className="w-full " src={image} alt="Recipe" />
             </Link>
-            
             <div className="absolute bottom-0 right-0 px-3 py-1 text-gray-900 text-sm bg-white bg-opacity-25">
               ${pricePerServing}
             </div>
-
             <div className="text-sm absolute top-0 right-0 px-4 text-gray-900 rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 border border-gray-700 bg-white bg-opacity-25">
               <span className="font-bold">{healthScore}</span>
               <small>Health Score</small>

@@ -8,10 +8,10 @@ interface Props {
 
 const Recipes = ({ recipes }: Props): JSX.Element => {
   return (
-    <> 
+    <div> 
+        <h1 className="text-gray-700 text-center text-xl font-bold bg-gray-200 my-5">Recipes</h1>
     {recipes.length ? (
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-1 pt-20 pb-10 lg:pt-20 lg:pb-20">
-        <h1 className="text-gray-700 text-center text-xl font-bold bg-[#A1D6E2] mt-15">All Recipes</h1>
+      <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-16 p-5 mb-20">
         {recipes.map((element) => (
               <Recipe
                 id={element.id}
@@ -22,13 +22,15 @@ const Recipes = ({ recipes }: Props): JSX.Element => {
                 dishTypes={element.dishTypes}
                 diets={element.diets}
                 summary={element.summary}
+                aggregateLikes={element.aggregateLikes}
+                readyInMinutes={element.readyInMinutes}
               />
               ))}
       </div>
       ) : ( 
         "Loading..."
         )}
-    </>
+    </div>
   );
 };
 

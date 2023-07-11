@@ -39,20 +39,20 @@ export default function Paginated({
         disabled={paginated === 1}
         onClick={() => previousPage()}
       >
-        <TiChevronLeft size={25} />
+        <TiChevronLeft size={25} />Prev
       </button>
       }
       <h5 className="mb-4 p-2 text-xl font-bold">{paginated}</h5>
-      { paginated === 10
+      { paginated === 9
       ? <button className="mx-5 mb-4 p-2 cursor-not-allowed text-white"> 
       <TiChevronRight size={25} />
       </button>
       : <button
         className="mx-5 mb-4 p-2 hover:bg-[#A1D6E2] rounded-xl text-gray-500 hover:text-gray-700"
-        disabled={paginated === 10}
+        disabled={paginated === 9}
         onClick={() => nextPage()}
       >
-        <TiChevronRight size={25} />
+        <TiChevronRight size={25} />Next
       </button>
       }
     </div>
