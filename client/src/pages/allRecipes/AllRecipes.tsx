@@ -9,7 +9,7 @@ import Recipes from "../../components/recipes/Recipes";
 import Paginated from "../../components/paginated/Paginated";
 import FiltersAndSearch from "./FiltersAndSearch";
 
-import banner from "../../assets/images.png"
+import banner from "../../assets/images.png";
 
 const AllRecipes = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -43,9 +43,9 @@ const AllRecipes = () => {
 
   return (
     <>
-      <div className="flex text-center justify-center items-center w-full h-screen opacity-90">
+      <div className="flex relative text-center justify-center items-center w-full h-screen opacity-90 bg-gray-200">
         <div className="flex w-full h-screen justify-start text-center items-center">
-          <img className="" src={banner} alt=""/>
+          <img className="" src={banner} alt="" />
           <h1 className="absolute center text-3xl p-4 text-gray-200 md:text-4xl lg:text-6xl">
             All Recipes
           </h1>
@@ -54,6 +54,22 @@ const AllRecipes = () => {
       <div className="flex items-center w-full">
         <FiltersAndSearch />
       </div>
+      <div className="flex justify-center items-center">
+        {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
+      </div>
+      {recipesPages.length === 1 ||
+      recipesPages.length === 2 ||
+      recipesPages.length === 3 ||
+      recipesPages.length === 5 ||
+      recipesPages.length === 6 ||
+      recipesPages.length === 7 ||
+      recipesPages.length === 8 ||
+      recipesPages.length === 9 ||
+      recipesPages.length === 10 ||
+      recipesPages.length === 11 ? (
+        <div className="hidden"></div>
+      ) : (
+        <div className="flex justify-center items-center text-center">
           <Paginated
             recipes={recipesPerPage}
             paginated={paginated}
@@ -63,9 +79,8 @@ const AllRecipes = () => {
             previousPage={previousPage}
             currentPage={currentPage}
           />
-      <div className="flex justify-center items-center">
-            {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
-      </div>
+        </div>
+        )}
     </>
   );
 };

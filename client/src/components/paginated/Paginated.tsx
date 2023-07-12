@@ -35,7 +35,7 @@ export default function Paginated({
       <TiChevronLeft size={25} />
       </button>
       : <button
-        className="mx-5 mb-4 p-2 hover:bg-[#A1D6E2] rounded-xl text-gray-500 hover:text-gray-700"
+        className="mx-5 mb-4 p-2 text-gray-700 hover:text-gray-900"
         disabled={paginated === 1}
         onClick={() => previousPage()}
       >
@@ -48,7 +48,7 @@ export default function Paginated({
       <TiChevronRight size={25} />
       </button>
       : <button
-        className="mx-5 mb-4 p-2 hover:bg-[#A1D6E2] rounded-xl text-gray-500 hover:text-gray-700"
+        className="mx-5 mb-4 p-3 text-gray-700 hover:text-gray-900"
         disabled={paginated === 9}
         onClick={() => nextPage()}
       >

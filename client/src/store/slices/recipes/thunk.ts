@@ -1,6 +1,10 @@
 import axios from "axios";
-import { getAllRecipes, getRecipeByName, getRecipeById } from "./recipesSlice";
+
 import { AppThunk } from "../../store";
+
+import { ActionInterface, RecipesInterface } from "../../../Interfaces/Interfaces";
+
+import { getAllRecipes, getRecipeByName, getRecipeById } from "./recipesSlice";
 
 
 export function getAllRecipesThunk(): AppThunk {
@@ -34,9 +38,25 @@ export function getRecipeByNameThunk(name: string): AppThunk {
     try {
       const response = await axios.get(`http://localhost:3000/api/recipe?name=${name}`);
       dispatch(getRecipeByName(response.data));
-      console.log(response.data);
+      // console.log(response.data);
     } catch (e) {
       console.error(e);
     }
   };
+}
+
+export function getAlphabeticalOrderThunk(
+  rec: RecipesInterface[],
+  action: ActionInterface
+): RecipesInterface[] {
+  rec.sort((a, b) => {
+    if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      return action.payload === "asc" ? -1 : 1;
+    }
+    if (a.title.toLowerCase() > b.title.toLowerCase()) {
+      return action.payload === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+  return rec;
 }

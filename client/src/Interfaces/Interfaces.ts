@@ -8,6 +8,11 @@ export interface TheModalRecipe {
   diets?: dietsTypes[] | string[];
 }
 
+export interface ActionInterface {
+  type: string
+  payload: Record
+}
+
 export interface RecipesInterface {
   aggregateLikes?: number;
   analyzedInstructions?: {}[];

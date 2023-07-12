@@ -25,11 +25,6 @@ export class RecipesController {
     return this.providerService.getIdRecipe(id);
   }
   
-  // @Get(':id')
-  // public async findOneIDRecipe(@Param('id') id: number) {
-  //   return this.providerService.getIdRecipe(id);
-  // }
-  
   @Get('recipe')
   public async findOneIDRecipe(@Query('name') name: string) {
     return this.providerService.getOneRecipe(name);
