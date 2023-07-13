@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { TheInitialState } from "../../../Interfaces/Interfaces";
-import { getAlphabeticalOrderThunk } from "./thunk";
+import { getAlphabeticalOrderThunk, getHealthyScoreOrderThunk, getLikesOrderThunk, getPricePerServingOrderThunk } from "./thunk";
 
 const initialState: TheInitialState = {
 	recipes: [],
 	recipeDetails: {},
-	recipesWithFilters: [],
+	allRecipes: [],
 	favorites: [],
 	diets: [],
 	currentPage: 1
@@ -17,7 +17,7 @@ const recipesSlice = createSlice({
 	reducers: {
 		getAllRecipes: (state, action) => {
             state.recipes = action.payload
-			state.recipesWithFilters = action.payload
+			state.allRecipes = action.payload
         },
 		getRecipeById: (state, action) => {
             state.recipeDetails = action.payload
@@ -26,13 +26,49 @@ const recipesSlice = createSlice({
             state.recipes = action.payload
         },
 		alphabeticalOrder: (state, action) => {
-			const alphabeticVideogames = getAlphabeticalOrderThunk(
+			if (action.payload === "default") {
+				state.recipes = state.allRecipes
+				return
+			}
+			const recipesByAlphabet = getAlphabeticalOrderThunk(
                 state.recipes,
                 action
             )
-            state.recipes = alphabeticVideogames
-            state.recipes = action.payload
+            state.recipes = recipesByAlphabet
         },
+		healthyScoreOrder: (state, action) => {
+			if (action.payload === "default") {
+				state.recipes = state.allRecipes
+				return
+			}
+			const recipesByHealthyScore = getHealthyScoreOrderThunk(
+                state.recipes,
+                action
+            )
+            state.recipes = recipesByHealthyScore
+		},
+		pricePerServingOrder: (state, action) => {
+			if (action.payload === "default") {
+				state.recipes = state.allRecipes
+				return
+			}
+			const recipesByPrice = getPricePerServingOrderThunk(
+                state.recipes,
+                action
+            )
+            state.recipes = recipesByPrice
+		},
+		likesOrder: (state, action) => {
+			if (action.payload === "default") {
+				state.recipes = state.allRecipes
+				return
+			}
+			const recipesByLikes = getLikesOrderThunk(
+                state.recipes,
+                action
+            )
+            state.recipes = recipesByLikes
+		},
 		setCurrentPage: (state, action) => {
             state.currentPage = action.payload
         },
@@ -48,7 +84,10 @@ export const {
 	setCurrentPage,
 	getRecipeByName,
 	clearDetails,
-	alphabeticalOrder
+	alphabeticalOrder,
+	healthyScoreOrder,
+	pricePerServingOrder,
+	likesOrder
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

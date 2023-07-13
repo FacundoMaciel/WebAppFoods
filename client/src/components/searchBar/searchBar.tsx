@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+
 import Swal from "sweetalert2";
+
 import { getRecipeByNameThunk } from '../../store/slices/recipes/thunk';
 import { AppDispatch } from '../../store/store';
+
+import { ImSearch } from 'react-icons/im';
 
 const searchBar = (): JSX.Element => {
 
@@ -39,17 +43,17 @@ const searchBar = (): JSX.Element => {
     }
 
   return (
-    <div className="w-auto h-autoflex flex-col max-w-lg mt-20 mx-auto">
+    <div className="flex justify-center">
             <form onSubmit={onSubmit}>
-                <input className="px-8 py-2 rounded-lg border-gray-900 shadow-2xl hover:scale-105 hover:bg-gray-200 transition duration-500 ease-in-out"
+                <input className="focus:outline-none focus:ring-0 focus:bg-transparent p-1"
                     name='search'
-                    placeholder='Search'
+                    placeholder='Search '
                     type='text'
                     value={input}
                     onChange={onChange}
                 />
-                <button className="border shadow-2xl border-gray-200 rounded-md mx-4 p-2 font-bold hover:bg-gray-200" type='submit'>
-                    Search
+                <button className="ml-1 rounded-md p-1 hover:scale-110 text-gray-700" type='submit'>
+                    <ImSearch />
                 </button>
             </form>
         </div>

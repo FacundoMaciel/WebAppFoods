@@ -43,13 +43,13 @@ export default function Paginated({
       </button>
       }
       <h5 className="mb-4 p-2 text-xl font-bold">{paginated}</h5>
-      { paginated === 9
+      { paginated === 7
       ? <button className="mx-5 mb-4 p-2 cursor-not-allowed text-white"> 
       <TiChevronRight size={25} />
       </button>
       : <button
         className="mx-5 mb-4 p-3 text-gray-700 hover:text-gray-900"
-        disabled={paginated === 9}
+        disabled={paginated === 7}
         onClick={() => nextPage()}
       >
         <TiChevronRight size={25} />Next

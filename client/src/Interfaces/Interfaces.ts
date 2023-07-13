@@ -67,7 +67,7 @@ export interface TheInitialState {
   currentPage: number
   recipes: RecipesInterface[]
   recipeDetails: RecipesInterface | Record<string>
-  recipesWithFilters: RecipesInterface[]
+  allRecipes: RecipesInterface[]
   favorites: RecipesInterface[]
   diets: dietsTypes[] | string[]
 }

@@ -10,8 +10,9 @@ import Paginated from "../../components/paginated/Paginated";
 import FiltersAndSearch from "./FiltersAndSearch";
 
 import banner from "../../assets/images.png";
+import SimpleRecipesCarousel from "./filters/simpleRecipesCarousel/SimpleRecipesCarousel";
 
-const AllRecipes = () => {
+const AllRecipes = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
   const { recipes, currentPage } = useSelector(
     (state: RootState) => state.recipes
@@ -22,7 +23,15 @@ const AllRecipes = () => {
 
   const lastRecipeLocation = paginated * recipesPerPage;
   const firstRecipeLocation = lastRecipeLocation - recipesPerPage;
-  const recipesPages = recipes.slice(firstRecipeLocation, lastRecipeLocation);
+  const recipesPages = recipes.filter((r) =>
+  r.readyInMinutes ? r.readyInMinutes > 30 : r
+).slice(firstRecipeLocation, lastRecipeLocation);
+
+  const test = recipes.filter((r) =>
+  r.readyInMinutes ? r.readyInMinutes > 30 : r
+) 
+console.log(test.length);
+
 
   const nextPage = function () {
     setPaginated(paginated + 1);
@@ -43,10 +52,10 @@ const AllRecipes = () => {
 
   return (
     <>
-      <div className="flex relative text-center justify-center items-center w-full h-screen opacity-90 bg-gray-200">
+      <div className="flex relative text-center justify-center items-center w-full h-screen opacity-90 bg-gray-100">
         <div className="flex w-full h-screen justify-start text-center items-center">
           <img className="" src={banner} alt="" />
-          <h1 className="absolute center text-3xl p-4 text-gray-200 md:text-4xl lg:text-6xl">
+          <h1 className="absolute center text-3xl italic p-4 text-gray-200 md:text-4xl lg:text-6xl">
             All Recipes
           </h1>
         </div>
@@ -54,22 +63,19 @@ const AllRecipes = () => {
       <div className="flex items-center w-full">
         <FiltersAndSearch />
       </div>
-      <div className="flex justify-center items-center">
-        {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
-      </div>
       {recipesPages.length === 1 ||
       recipesPages.length === 2 ||
       recipesPages.length === 3 ||
+      recipesPages.length === 4 ||
       recipesPages.length === 5 ||
       recipesPages.length === 6 ||
       recipesPages.length === 7 ||
       recipesPages.length === 8 ||
       recipesPages.length === 9 ||
-      recipesPages.length === 10 ||
       recipesPages.length === 11 ? (
         <div className="hidden"></div>
       ) : (
-        <div className="flex justify-center items-center text-center">
+        <div className="flex justify-center items-center text-center bg-gray-100">
           <Paginated
             recipes={recipesPerPage}
             paginated={paginated}
@@ -81,6 +87,12 @@ const AllRecipes = () => {
           />
         </div>
         )}
+      <div className="flex justify-center items-center">
+        {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
+      </div>
+      <div className="container mx-auto p-10">
+      <SimpleRecipesCarousel />
+      </div>
     </>
   );
 };

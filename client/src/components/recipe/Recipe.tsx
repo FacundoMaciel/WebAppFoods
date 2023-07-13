@@ -7,13 +7,15 @@ const Recipe = ({
   title,
   image,
   aggregateLikes,
-  readyInMinutes
+  readyInMinutes,
+  pricePerServing
 }: RecipesInterface): JSX.Element => {
   return (
     <div key={id} className="">
       <div className="w-[100%]">
         <div className="rounded overflow-hidden mx-5">
-          <small>Health score: {healthScore}</small>
+          <small className="p-1 bg-[#DCFF70] font-semibold">Health score: {healthScore}</small>
+          <small className="p-1 bg-pink-300 font-semibold">$ {pricePerServing}</small>
           <div className="relative hover:scale-105 transition duration-500 ease-in-out">
             <Link to={`recipeDetails/${id}`}>
               <img className="w-full " src={image} alt="Recipe" />
@@ -27,7 +29,7 @@ const Recipe = ({
             </div>
           </div>
           <div className="px-6 py-4">
-            <span className="font-semibold hidden md:flex p-2 rounded-md m-1 text-sm text-gray-900">
+            <span className="font-semibold hidden md:flex p-2 rounded-md m-1 text-base text-gray-900">
               {title}
             </span>
             <span className="font-semibold p-2 flex md:hidden rounded-md m-1 text-lg text-gray-900">
