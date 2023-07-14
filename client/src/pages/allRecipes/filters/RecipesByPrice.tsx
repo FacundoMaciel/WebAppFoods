@@ -15,7 +15,7 @@ export default function RecipesByPrice(): JSX.Element {
         className="focus:outline-none focus:ring-0 cursor-pointer rounded-md m-1"
         onChange={onHandleChange}
       >
-        <option value="default">Default </option>
+        <option value="off">No select </option>
         <option value="asc"> Cheap </option>
         <option value="desc"> Expensive </option>
       </select>

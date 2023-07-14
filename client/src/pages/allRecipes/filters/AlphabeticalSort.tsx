@@ -13,7 +13,7 @@ export default function AlphabeticalSort(): JSX.Element {
     <div className="flex justify-center items-center text-center text-sm">
       Filt by Alphabet <br />
       <select className="focus:outline-none focus:ring-0 cursor-pointer rounded-md m-1" onChange={onHandleChange}>
-        <option value="default">Default </option>
+        <option value="desc">Z to A </option>
         <option value="asc"> A to Z </option>
         <option value="desc"> Z to A </option>
       </select>

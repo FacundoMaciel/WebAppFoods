@@ -20,6 +20,18 @@ export class RecipesController {
     return this.recipesService.getRecipesDB(); // Invocación al servicio para resolver la petición
   }
 
+  @Get('everyRecipes')
+  async getTotalRecipes(){
+    try {
+      const apiData = await this.providerService.getAllRecipes();
+      const dbData = this.recipesService.getRecipesDB();
+      const totalData = apiData.results.concat(dbData);
+      return totalData;
+  } catch (e) {
+      console.log(e);
+  }
+  }
+
   @Get('recipe/:id')
   public async findOneRecipe(@Param('id', ParseIntPipe) id: number) {
     return this.providerService.getIdRecipe(id);

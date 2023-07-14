@@ -18,7 +18,7 @@ export class RecipesService {
    }
 
   async createRecipe(recipe: CreateRecipeDto) {
-    const newRecipe = this.recipeRepository.create(recipe);
+    const newRecipe = !recipe ? this.recipeRepository.create(recipe):recipe;
     return this.recipeRepository.save(newRecipe);
   }
 

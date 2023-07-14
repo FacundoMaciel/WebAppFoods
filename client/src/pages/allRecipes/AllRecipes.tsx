@@ -27,12 +27,6 @@ const AllRecipes = (): JSX.Element => {
   r.readyInMinutes ? r.readyInMinutes > 30 : r
 ).slice(firstRecipeLocation, lastRecipeLocation);
 
-  const test = recipes.filter((r) =>
-  r.readyInMinutes ? r.readyInMinutes > 30 : r
-) 
-console.log(test.length);
-
-
   const nextPage = function () {
     setPaginated(paginated + 1);
   };

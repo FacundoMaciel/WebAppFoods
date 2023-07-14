@@ -3,9 +3,18 @@ import SearchBar from "../../components/searchBar/searchBar";
 import HealthyScore from "./filters/HealthyScore";
 import RecipesByPrice from "./filters/RecipesByPrice";
 import RecipesByLikes from "./filters/RecipesByLikes";
+import { clearFilters } from "../../store/slices/recipes/recipesSlice";
+import { useDispatch } from "react-redux";
 
 
 const FiltersAndSearch = (): JSX.Element => {
+
+  const dispatch = useDispatch();
+
+  function handleOnChange() {
+    dispatch(clearFilters());
+  }
+
   return (
     <div className="flex items-center justify-between w-full">
       <ul className="flex items-center ">
@@ -22,6 +31,7 @@ const FiltersAndSearch = (): JSX.Element => {
           <RecipesByLikes />
         </li>
       </ul>
+      <button onClick={handleOnChange}>Clear Filters</button>
       <div className="border border-gray-900 rounded-md p-3 justify-center items-center text-center">
           <SearchBar />
         </div>

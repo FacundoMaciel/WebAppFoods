@@ -11,7 +11,7 @@ const Recipes = ({ recipes }: Props): JSX.Element => {
     <div className="bg-gray-100"> 
         <div className="inline-flex items-center justify-center w-full mt-10">
         <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-900" />
-        <div className="absolute px-4 -translate-x-1/2 bg-white rounded-xl shadow-xl left-1/2">
+        <div className="absolute px-4 -translate-x-1/2 bg-pink-300 rounded-xl shadow-xl left-1/2">
           <h1 className="font-bold text-gray-900">∼ Recipes ∼</h1>
         </div>
       </div>
