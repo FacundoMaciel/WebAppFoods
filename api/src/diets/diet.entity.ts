@@ -9,9 +9,9 @@ export class Diet {
     @PrimaryGeneratedColumn()
     id: number
     // Decorador para generar una columna 
-    @Column()
+    @Column({default:"recipe"})
     name: string
     // Una categoria a muchos productos, se relacionan mediante la propiedad products tomando en la entidad category
-    @ManyToMany(() => Recipe, (recipe) => recipe.theDiet)
+    @ManyToMany(type => Recipe, recipe => recipe.theDiet, { eager: false })
     recipes: Recipe[];
 }

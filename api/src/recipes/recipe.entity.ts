@@ -6,6 +6,7 @@ import {
   ManyToOne,
   JoinColumn,
   ManyToMany,
+  JoinTable,
 } from 'typeorm';
 
 // Decorador para generar la endidad
@@ -33,12 +34,13 @@ export class Recipe {
   @Column()
   image: string;
 
-  @Column()
+  @Column({default: "vegan"})
   diet: string;
 
   // Decorador para generar la relacion entre tablas de este lado correspone muchos a uno
   // Muchos productos a una categoria, relacionar en esta entidad con el decorador @JoinColumn
-    @ManyToMany (() => Diet, (diet) => diet.recipes)
-    @JoinColumn({ name: 'diet' })
-    theDiet: Diet
+    @ManyToMany (type => Diet, diet => diet.recipes, { eager: false })
+    @JoinTable()
+    theDiet: Diet[]
 }
+

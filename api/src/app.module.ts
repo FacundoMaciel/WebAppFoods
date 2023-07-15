@@ -17,7 +17,7 @@ import { DietsModule } from './diets/diets.module';
       database: 'foodsDB',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
-      synchronize: false,
+      synchronize: true,
       retryDelay: 3000,
       retryAttempts: 5
     }),

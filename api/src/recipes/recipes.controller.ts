@@ -24,8 +24,10 @@ export class RecipesController {
   async getTotalRecipes(){
     try {
       const apiData = await this.providerService.getAllRecipes();
-      const dbData = this.recipesService.getRecipesDB();
+      const dbData = await this.recipesService.getRecipesDB();
       const totalData = apiData.results.concat(dbData);
+      console.log(dbData);
+      
       return totalData;
   } catch (e) {
       console.log(e);
@@ -42,7 +44,7 @@ export class RecipesController {
     return this.providerService.getOneRecipe(name);
   }
 
-  @Post() //Agregar la ruta 'createRecipe'
+  @Post('create') //Agregar la ruta 'createRecipe'
   public async createRecipe(@Body() newRecipe: CreateRecipeDto) {
     return this.recipesService.createRecipe(newRecipe);
   }
