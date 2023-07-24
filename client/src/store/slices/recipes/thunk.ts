@@ -7,7 +7,7 @@ import {
   RecipesInterface,
 } from "../../../Interfaces/Interfaces";
 
-import { getAllRecipes, getRecipeByName, getRecipeById } from "./recipesSlice";
+import { getAllRecipes, getRecipeByName, getRecipeById, getAllDBrecipes } from "./recipesSlice";
 
 export function getAllRecipesThunk(): AppThunk {
   return async (dispatch) => {
@@ -16,6 +16,18 @@ export function getAllRecipesThunk(): AppThunk {
       let results = response.data.results;
       dispatch(getAllRecipes(results));
       // console.log(results);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+}
+export function getAllDBRecipesThunk(): AppThunk {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/recipes");
+      let results = response.data;
+      dispatch(getAllDBrecipes(results));
+      console.log(results);
     } catch (e) {
       console.error(e);
     }

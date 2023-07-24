@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 
 import { RootState } from "../../store/store";
@@ -9,18 +8,17 @@ import Swal from "sweetalert2";
 import { TheModalRecipe } from "../../Interfaces/Interfaces";
 
 const SecondRecipes = (): JSX.Element => {
-
   const { recipes } = useSelector((state: RootState) => state.recipes);
 
   let principalRecipe = recipes.filter((el) => el.diets.length).slice(12, 13);
 
-  const theAlert = ({ healthScore, title, image, summary }: TheModalRecipe) => {
+  const theAlert = ({ healthScore, title, image, steps }: TheModalRecipe) => {
     Swal.fire({
       width: "80%",
       background: "rgb(229 231 235)",
       color: "rgb(17 24 39)",
       title: title,
-      text: summary,
+      html: "<ul>"+steps+"</ul>",
       imageUrl: image,
       buttonsStyling: true,
       imageWidth: 300,
@@ -37,19 +35,25 @@ const SecondRecipes = (): JSX.Element => {
       let healthScore = favoriteRecipes[i].healthScore;
       let title = favoriteRecipes[i].title;
       let image = favoriteRecipes[i].image;
-      let summary = favoriteRecipes[i].summary.replace(/<[^>]*>/g, "");
-      theAlert({ healthScore, title, image, summary });
+      let steps = favoriteRecipes[i].analyzedInstructions[0].steps.map((el:any) => 
+      `<li>${el.step}</li>`)
+      theAlert({ healthScore, title, image, steps });
     }
   };
 
   return (
-    <div className="text-center py-10">
+    <div className="text-center py-2">
       <div className="mb-5 text-center justify-center">
-        <h1 className="text-2xl text-gray-900 font-bold">People's favorite Recipe</h1>
+        <h1 className="text-2xl text-gray-900 font-bold">
+          People's favorite Recipe
+        </h1>
       </div>
       {principalRecipe
         ? principalRecipe.map((rec) => (
-            <div key={rec.id} className="flex md:hidden flex-col justify-center items-center min-h-screen">
+            <div
+              key={rec.id}
+              className="flex md:hidden flex-col justify-center items-center min-h-screen"
+            >
               <div className="rounded-lg overflow-hidden max-w-lg w-full">
                 <img
                   src={brussels}
@@ -104,47 +108,33 @@ const SecondRecipes = (): JSX.Element => {
       <div className="md:flex hidden">
         {principalRecipe
           ? principalRecipe.map((rec) => (
-              <div key={rec.id} className="flex">
-                <div className="w-[55%] md:shrink-0">
-                    <img
-                      className="w-52 h-full md:h-full md:w-screen"
-                      src={brussels}
-                      alt=""
-                    />
-                </div>
-                <div className="p-5 w-[50%] h-full mb-3 font-normal text-gray-600 bg-gray-200">
-                  <h1 className="text-gray-900 text-2xl">{rec.title}</h1>
-                  {rec.diets.length ? (
-                    <ul className="text-transform: capitalize text-xl">
-                      Diets
-                      {rec.diets.map((diet) => (
-                        <li key={diet} className="text-gray-900 text-base">
-                          {diet}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  <hr className="border-gray-700" />
-                  <h3 className="text-transform: capitalize text-xl">
-                    {" "}
-                    Dish Types
-                    <p className="text-gray-900 text-base">{rec.dishTypes}</p>
-                  </h3>
-                  <hr className="border-gray-700"/>
-                  <h3 className="text-transform: capitalize text-xl">
-                    {" "}
-                    Price per Serving
-                    <p className="text-gray-900 text-base">
-                      ${rec.pricePerServing}
-                    </p>
-                  </h3>
-                  <button
-                    onClick={handleOnClick}
-                    type="button"
-                    className="bg-transparent p-2 border-gray-700 rounded-lg text-gray-900 hover:scale-95 hover:bg-gray-700 border-2 hover:text-white hover:font-bold duration-300 mt-16"
-                  >
-                    View more
-                  </button>
+              <div className="container mx-auto my-2">
+                <div className="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2">
+                  <div className="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
+                    <div className="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom">
+                      <img src={brussels} alt="" />
+                      </div>
+                    <svg
+                      className="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-white -ml-12"
+                      viewBox="0 0 100 100"
+                      preserveAspectRatio="none"
+                    >
+                      <polygon points="50,0 100,0 50,100 0,100" />
+                    </svg>
+                  </div>
+                  <div className="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
+                    <div className="p-8 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
+                      <h3 className="hidden md:block font-bold text-2xl text-gray-700">
+                        {rec.title}
+                      </h3>
+                      <p className="text-gray-600 text-justify text-sm">
+                        {rec.summary.replace(/<[^>]*>/g, "")}
+                      </p>
+                        <button className="flex items-baseline mt-3 text-blue-600 hover:text-blue-900 focus:text-blue-900" onClick={handleOnClick}>See more details
+                        <span className="text-xs ml-1">&#x279c;</span>
+                        </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))

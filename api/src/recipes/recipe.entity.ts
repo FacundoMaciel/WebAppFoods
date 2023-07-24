@@ -34,13 +34,13 @@ export class Recipe {
   @Column()
   image: string;
 
-  @Column({default: "vegan"})
-  diet: string;
+  // @Column({default: "vegan"})
+  // diet: string;
 
   // Decorador para generar la relacion entre tablas de este lado correspone muchos a uno
   // Muchos productos a una categoria, relacionar en esta entidad con el decorador @JoinColumn
-    @ManyToMany (type => Diet, diet => diet.recipes, { eager: false })
+    @ManyToMany (() => Diet, diet => diet.recipes, { eager: false })
     @JoinTable()
-    theDiet: Diet[]
+    diet: Diet
 }
 

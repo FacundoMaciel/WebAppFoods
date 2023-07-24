@@ -1,7 +1,8 @@
-import { Body, Controller, Post, Get, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
+import { Body, Controller, Post, Get, Param, Delete, Query, Req, ParseIntPipe } from '@nestjs/common';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { RecipesService } from './recipes.service';
 import { ProviderService } from 'src/provider/provider.service';
+import { Request } from 'express'
 
 @Controller('api')
 export class RecipesController {
@@ -32,6 +33,19 @@ export class RecipesController {
   } catch (e) {
       console.log(e);
   }
+  }
+
+  @Get('DBdiets')
+  async getCategory(@Req() req: Request) {
+      
+      const builder = await this.recipesService.queryBuilder('recipes')
+
+      if(req.query.c) {
+          builder.where('recipes.diet LIKE :c', {c: `%${req.query.c}%`})
+      }
+
+      return await builder.getMany();
+
   }
 
   @Get('recipe/:id')

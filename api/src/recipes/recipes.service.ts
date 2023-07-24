@@ -13,12 +13,19 @@ export class RecipesService {
 
   async getRecipesDB() {
     return this.recipeRepository.find({
-       relations: ['theDiet']
-    })
-   }
+      relations: ['diet'],
+    });
+  }
+
+  async queryBuilder(alias: string) {
+    return this.recipeRepository.createQueryBuilder(alias);
+  }
 
   async createRecipe(recipe: CreateRecipeDto) {
-    const newRecipe = !recipe ? this.recipeRepository.create(recipe):recipe;
+    const newRecipe =
+      !recipe && recipe.name && recipe.summary
+        ? this.recipeRepository.create(recipe)
+        : recipe;
     return this.recipeRepository.save(newRecipe);
   }
 

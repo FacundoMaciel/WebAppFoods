@@ -11,7 +11,7 @@ const initialState: TheInitialState = {
   recipes: [],
   recipeDetails: {},
   allRecipes: [],
-  favorites: [],
+  DBrecipes: [],
   diets: [],
   currentPage: 1,
 };
@@ -23,6 +23,9 @@ const recipesSlice = createSlice({
     getAllRecipes: (state, action) => {
       state.recipes = action.payload;
       state.allRecipes = action.payload;
+    },
+    getAllDBrecipes: (state, action) => {
+      state.DBrecipes = action.payload
     },
     getRecipeById: (state, action) => {
       state.recipeDetails = action.payload;
@@ -63,6 +66,7 @@ const recipesSlice = createSlice({
 
 export const {
   getAllRecipes,
+  getAllDBrecipes,
   getRecipeById,
   setCurrentPage,
   getRecipeByName,

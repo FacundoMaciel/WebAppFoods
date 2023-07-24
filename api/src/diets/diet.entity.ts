@@ -5,13 +5,12 @@ import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm"
 @Entity()
 export class Diet {
     // Decorador para generar una columna PrimaryKey
-    // Decorador para generar una columna PrimaryKey
     @PrimaryGeneratedColumn()
     id: number
     // Decorador para generar una columna 
-    @Column({default:"recipe"})
+    @Column()
     name: string
     // Una categoria a muchos productos, se relacionan mediante la propiedad products tomando en la entidad category
-    @ManyToMany(type => Recipe, recipe => recipe.theDiet, { eager: false })
+    @ManyToMany(() => Recipe, recipe => recipe.diet, { eager: false })
     recipes: Recipe[];
 }

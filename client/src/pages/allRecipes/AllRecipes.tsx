@@ -1,4 +1,4 @@
-import { getAllRecipesThunk } from "../../store/slices/recipes/thunk";
+import { getAllDBRecipesThunk, getAllRecipesThunk } from "../../store/slices/recipes/thunk";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,8 @@ import FiltersAndSearch from "./FiltersAndSearch";
 
 import banner from "../../assets/images.png";
 import SimpleRecipesCarousel from "./filters/simpleRecipesCarousel/SimpleRecipesCarousel";
+import CreatedRecipesCarousel from "./filters/createdRecipesCarousel/CreatedRecipesCarousel";
+import TheRecipesCreatedByUsers from "./filters/createdRecipesCarousel/TheRecipesCreatedByUsers";
 
 const AllRecipes = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
@@ -23,9 +25,8 @@ const AllRecipes = (): JSX.Element => {
 
   const lastRecipeLocation = paginated * recipesPerPage;
   const firstRecipeLocation = lastRecipeLocation - recipesPerPage;
-  const recipesPages = recipes.filter((r) =>
-  r.readyInMinutes ? r.readyInMinutes > 30 : r
-).slice(firstRecipeLocation, lastRecipeLocation);
+  let moreElaboratedRecipes = recipes.filter(rec => rec.readyInMinutes && rec.readyInMinutes > 30)
+  const recipesPages = moreElaboratedRecipes.slice(firstRecipeLocation, lastRecipeLocation);
 
   const nextPage = function () {
     setPaginated(paginated + 1);
@@ -40,6 +41,7 @@ const AllRecipes = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAllRecipesThunk());
+    dispatch(getAllDBRecipesThunk());
   }, []);
 
   //  console.log(recipes);
@@ -83,6 +85,9 @@ const AllRecipes = (): JSX.Element => {
         )}
       <div className="flex justify-center items-center">
         {recipesPages ? <Recipes recipes={recipesPages} /> : "Loading..."}
+      </div>
+      <div className="flex justify-center items-center">
+        <TheRecipesCreatedByUsers />
       </div>
       <div className="container mx-auto p-10">
       <SimpleRecipesCarousel />

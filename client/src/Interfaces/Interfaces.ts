@@ -4,6 +4,7 @@ export interface TheModalRecipe {
   title?: string;
   image?: string;
   summary?: string;
+  steps?:any;
   dishTypes?: dishTypes[] | string[];
   diets?: dietsTypes[] | string[];
 }
@@ -15,7 +16,7 @@ export interface ActionInterface {
 
 export interface RecipesInterface {
   aggregateLikes?: number;
-  analyzedInstructions?: {}[];
+  analyzedInstructions?: any;
   cheap?: boolean;
   cookingMinutes?: number;
   creditsText?: string;
@@ -41,6 +42,7 @@ export interface RecipesInterface {
   summary: string;
   sustainable?: boolean;
   title: string;
+  name?: string;
   vegan?: boolean;
   vegetarian?: boolean;
   veryHealthy?: boolean;
@@ -48,27 +50,38 @@ export interface RecipesInterface {
   weightWatcherSmartPoints?: number;
 }
 
-export interface RecipesDetailsInterface {
-  analyzedInstructions?: {}[];
-  cheap?: boolean;
-  cookingMinutes?: number;
-  diets?: dietsTypes[] | string[];
-  dishTypes?: dishTypes[] | string[];
-  healthScore?: number;
-  id?: number;
-  image?: string;
-  summary?: string;
-  title?: string;
-  vegan?: boolean;
-  vegetarian?: boolean;
+export interface CreatedRecipeInterface {
+  id: number;
+  name: string;
+  summary: string;
+  steps: string;
+  score: number;
+  healthScore: number;
+  image: string;
+  diets: string | string[];
 }
+
+// export interface RecipesDetailsInterface {
+//   analyzedInstructions?: {}[];
+//   cheap?: boolean;
+//   cookingMinutes?: number;
+//   diets?: dietsTypes[] | string[];
+//   dishTypes?: dishTypes[] | string[];
+//   healthScore?: number;
+//   id?: number;
+//   image?: string;
+//   summary?: string;
+//   title?: string;
+//   vegan?: boolean;
+//   vegetarian?: boolean;
+// }
 
 export interface TheInitialState {
   currentPage: number
   recipes: RecipesInterface[]
   recipeDetails: RecipesInterface | Record<string>
   allRecipes: RecipesInterface[]
-  favorites: RecipesInterface[]
+  DBrecipes: CreatedRecipeInterface[]
   diets: dietsTypes[] | string[]
 }
 

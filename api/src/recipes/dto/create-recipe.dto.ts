@@ -3,8 +3,8 @@ export class CreateRecipeDto {
   summary: string;
   steps: string;
   score: number;
-  diet: string
   healthScore: number;
   image: string;
+  diets: string[];
 }
 

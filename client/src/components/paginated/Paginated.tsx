@@ -1,5 +1,5 @@
-import { TiChevronRight } from "react-icons/ti";
-import { TiChevronLeft } from "react-icons/ti";
+import { BsArrowRightCircle } from "react-icons/bs";
+import { BsArrowLeftCircle } from "react-icons/bs";
 // import { RecipesInterface } from "../../Interfaces/Interfaces";
 
 interface Props {
@@ -31,28 +31,28 @@ export default function Paginated({
   return (
     <div className="flex justify-center">
       { paginated === 1 
-      ? <button className="mx-5 mb-4 p-2 cursor-not-allowed text-white"> 
-      <TiChevronLeft size={25} />
+      ? <button className="mx-5 mb-1 p-2 cursor-not-allowed text-gray-200"> 
+      <BsArrowLeftCircle size={25} />
       </button>
       : <button
-        className="mx-5 mb-4 p-2 text-gray-700 hover:text-gray-900"
+        className="mx-5 mb-1 p-2 text-gray-700 hover:text-gray-900"
         disabled={paginated === 1}
         onClick={() => previousPage()}
       >
-        <TiChevronLeft size={25} />Prev
+        <BsArrowLeftCircle size={25} />
       </button>
       }
-      <h5 className="mb-4 p-2 text-xl font-bold">{paginated}</h5>
+      {/* <h5 className="mb-1 p-2 text-xl font-bold">{paginated}</h5> */}
       { paginated === 7
-      ? <button className="mx-5 mb-4 p-2 cursor-not-allowed text-white"> 
-      <TiChevronRight size={25} />
+      ? <button className="mx-5 mb-1 p-2 cursor-not-allowed text-gray-200"> 
+      <BsArrowRightCircle size={25} />
       </button>
       : <button
-        className="mx-5 mb-4 p-3 text-gray-700 hover:text-gray-900"
+        className="mx-5 mb-1 p-2 text-gray-600 hover:text-gray-900"
         disabled={paginated === 7}
         onClick={() => nextPage()}
       >
-        <TiChevronRight size={25} />Next
+        <BsArrowRightCircle size={25} />
       </button>
       }
     </div>
