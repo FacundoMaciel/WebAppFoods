@@ -6,6 +6,7 @@ import icon from "../../assets/PageIc.png";
 
 import Swal from "sweetalert2";
 import { TheModalRecipe } from "../../Interfaces/Interfaces";
+import { Link } from "react-router-dom";
 
 const SecondRecipes = (): JSX.Element => {
   const { recipes } = useSelector((state: RootState) => state.recipes);
@@ -18,7 +19,7 @@ const SecondRecipes = (): JSX.Element => {
       background: "rgb(229 231 235)",
       color: "rgb(17 24 39)",
       title: title,
-      html: "<ul>"+steps+"</ul>",
+      html: "<ul>" + steps + "</ul>",
       imageUrl: image,
       buttonsStyling: true,
       imageWidth: 300,
@@ -35,8 +36,9 @@ const SecondRecipes = (): JSX.Element => {
       let healthScore = favoriteRecipes[i].healthScore;
       let title = favoriteRecipes[i].title;
       let image = favoriteRecipes[i].image;
-      let steps = favoriteRecipes[i].analyzedInstructions[0].steps.map((el:any) => 
-      `<li>${el.step}</li>`)
+      let steps = favoriteRecipes[i].analyzedInstructions[0].steps.map(
+        (el: any) => `<li>${el.step}</li>`
+      );
       theAlert({ healthScore, title, image, steps });
     }
   };
@@ -92,13 +94,14 @@ const SecondRecipes = (): JSX.Element => {
                       Healthy Score: {rec.healthScore}
                     </span>
                   </div>
+                  <Link to={`recipeDetails/${rec.id}`}>
                   <button
-                    onClick={handleOnClick}
                     type="button"
                     className="bg-transparent p-2 rounded-lg text-gray-600 hover:scale-105 hover:bg-gray-600 border-2 hover:text-[#20222f] transition duration-500 ease-in-out hover:font-bold mt-16"
                   >
                     More details
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -108,12 +111,12 @@ const SecondRecipes = (): JSX.Element => {
       <div className="md:flex hidden">
         {principalRecipe
           ? principalRecipe.map((rec) => (
-              <div className="container mx-auto my-2">
+              <div key={rec.id} className="container mx-auto my-2">
                 <div className="relative rounded-lg flex flex-col md:flex-row items-center md:shadow-xl md:h-72 mx-2">
                   <div className="z-0 order-1 md:order-2 relative w-full md:w-2/5 h-80 md:h-full overflow-hidden rounded-lg md:rounded-none md:rounded-r-lg">
                     <div className="absolute inset-0 w-full h-full object-fill object-center bg-blue-400 bg-opacity-30 bg-cover bg-bottom">
-                      <img src={brussels} alt="" />
-                      </div>
+                      <img className="h-full w-full" src={brussels} alt="" />
+                    </div>
                     <svg
                       className="hidden md:block absolute inset-y-0 h-full w-24 fill-current text-white -ml-12"
                       viewBox="0 0 100 100"
@@ -123,16 +126,22 @@ const SecondRecipes = (): JSX.Element => {
                     </svg>
                   </div>
                   <div className="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
-                    <div className="p-8 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
+                    <div className="p-4 md:pr-18 md:pl-14 md:py-12 mx-2 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
                       <h3 className="hidden md:block font-bold text-2xl text-gray-700">
                         {rec.title}
                       </h3>
-                      <p className="text-gray-600 text-justify text-sm">
+                      <p className="text-gray-600 text-justify text-sm md:hidden lg:flex">
                         {rec.summary.replace(/<[^>]*>/g, "")}
                       </p>
-                        <button className="flex items-baseline mt-3 text-blue-600 hover:text-blue-900 focus:text-blue-900" onClick={handleOnClick}>See more details
-                        <span className="text-xs ml-1">&#x279c;</span>
+                      <p className="text-gray-600 text-justify text-sm md:flex sm:hidden lg:hidden">
+                        {rec.summary.replace(/<[^>]*>/g, "").slice(0, 300)}...
+                      </p>
+                      <Link to={`recipeDetails/${rec.id}`}>
+                        <button className="flex items-baseline mt-3 text-blue-600 hover:text-blue-900 focus:text-blue-900">
+                          See more details
+                          <span className="text-xs ml-1">&#x279c;</span>
                         </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

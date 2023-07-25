@@ -28,7 +28,7 @@ const CarouselItems = ({
               {healthScore}
             </span>{" "}
           </div>
-          <Link to={"/"}>
+          <Link to={`recipeDetails/${id}`}>
             <div className="flex items-center justify-center mt-3 mb-5">
               <button className="bg-transparent p-2 border-gray-700 rounded-lg text-gray-900 hover:scale-95 hover:bg-gray-700 border-2 hover:text-white hover:font-bold duration-300">
                 View More 

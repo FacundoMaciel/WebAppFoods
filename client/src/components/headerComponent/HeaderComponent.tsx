@@ -37,7 +37,7 @@ const HeaderComponent = () => {
         </div>
       </div>
       <div className="inline-flex items-center justify-center w-full mt-10">
-        <hr className="w-[85%] h-px my-8 border-0 rounded bg-black" />
+        <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-200" />
         <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2">
           <img src={hat} className="w-6 h-6"></img>
         </div>

@@ -11,7 +11,7 @@ import FiltersAndSearch from "./FiltersAndSearch";
 
 import banner from "../../assets/images.png";
 import SimpleRecipesCarousel from "./filters/simpleRecipesCarousel/SimpleRecipesCarousel";
-import CreatedRecipesCarousel from "./filters/createdRecipesCarousel/CreatedRecipesCarousel";
+//import CreatedRecipesCarousel from "./filters/createdRecipesCarousel/CreatedRecipesCarousel";
 import TheRecipesCreatedByUsers from "./filters/createdRecipesCarousel/TheRecipesCreatedByUsers";
 
 const AllRecipes = (): JSX.Element => {

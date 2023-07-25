@@ -29,7 +29,7 @@ const RecipeDetails: React.FC = () => {
   // console.log(theRecipe);
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-200 pt-20 text-center text-gray-900">
+    <div key={id} className="flex flex-col justify-center items-center min-h-screen bg-gray-200 pt-20 text-center text-gray-900">
       <h1 className="font-bold text-lg">Recipe</h1>
       <div className="bg-gray-200 pt-10">
         <h1 className="font-bold text-3xl text-gray-900 pb-10">
