@@ -13,7 +13,7 @@ export default function HealthyScore(): JSX.Element{
     <div className="flex justify-center items-center text-center text-sm">
       Filt by Health Score 
       <select
-        className="focus:outline-none focus:ring-0 cursor-pointer rounded-md m-1"
+        className="focus:outline-none focus:ring-0 cursor-pointer rounded-md m-1 bg-gray-100"
         onChange={onHandleChange}
       >
         <option value="off">No select </option>

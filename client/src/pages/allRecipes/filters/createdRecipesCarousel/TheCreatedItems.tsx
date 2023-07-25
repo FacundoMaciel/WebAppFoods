@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import { CreatedRecipeInterface } from "../../../../Interfaces/Interfaces";
 import icon from "../../../../assets/PageIc.png";
 
@@ -8,7 +8,6 @@ const TheCreatedItems = ({
   name,
   score,
   healthScore,
-  summary,
 }: CreatedRecipeInterface): JSX.Element => {
   return (
     <div key={id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
@@ -23,7 +22,7 @@ const TheCreatedItems = ({
               {name}
             </a>
           </h1>
-          <p className="text-grey-darker text-sm">{healthScore}</p>
+          <p className="text-grey-darker text-sm">Likes: {score}</p>
         </header>
 
         <footer className="flex items-center justify-between leading-none p-2 md:p-4">
@@ -36,7 +35,7 @@ const TheCreatedItems = ({
               className="block rounded-full w-10"
               src={icon}
             />
-            <p className="ml-2 text-sm">{score}</p>
+            <p className="ml-2 text-sm">H. Score → {healthScore}</p>
           </a>
         </footer>
       </article>

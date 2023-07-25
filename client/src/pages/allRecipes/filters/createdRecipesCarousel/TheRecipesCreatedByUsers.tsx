@@ -13,13 +13,18 @@ const TheRecipesCreatedByUsers = (): JSX.Element => {
 
 
   return (
-    <div className="bg-gray-100"> 
-      <h1 className="text-center text-2xl text-gray-900 font-bold shadow-lg rounded-lg mb-5">
-      Recipes By Users
+    <div className="bg-white"> 
+    <div className="inline-flex items-center justify-center w-full">
+    <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-300" />
+    <div className="absolute px-4 -translate-x-1/2 rounded-xl bg-gray-100 border-2 border-dashed shadow-xl left-1/2">
+      <h1 className="text-center text-gray-900 p-2 font-bold ">
+      🍥 Recipes By Users 🍥
       </h1>
+    </div>
+      </div>
       <div className="container my-12 mx-auto px-4 md:px-12">
     {DBrecipes.length ? (
-      <div className="flex flex-wrap mx-1 lg:-mx-4">
+      <div className="flex flex-wrap mx-1 lg:-mx-4 shadow-xl">
         {DBrecipes?.map((element) => (
               <TheCreatedItems
               id={element.id}

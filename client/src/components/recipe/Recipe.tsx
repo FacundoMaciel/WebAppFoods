@@ -14,13 +14,13 @@ const Recipe = ({
     <div key={id} className="">
       <div className="w-[100%]">
         <div className="rounded overflow-hidden mx-5">
-          <small className="p-1 bg-[#DCFF70] font-semibold">Health score: {healthScore}</small>
-          <small className="p-1 bg-pink-300 font-semibold">$ {pricePerServing}</small>
+          <small className="p-1 bg-gray-300 font-semibold">$ {pricePerServing}</small>
+          <small className="p-1 bg-gray-100 font-semibold">Health score: {healthScore}</small>
           <div className="relative hover:scale-105 transition duration-500 ease-in-out">
             <Link to={`recipeDetails/${id}`}>
               <img className="w-full " src={image} alt="Recipe" />
             </Link>
-            <div className="absolute bottom-0 font-bold right-0 px-3 py-1 text-gray-900 text-sm bg-white">
+            <div className="absolute bottom-0 font-bold right-0 px-3 py-1 text-gray-900 text-sm bg-gray-300">
               Ready in {readyInMinutes} minutes
             </div>
             <div className="text-sm absolute top-0 right-0 px-4 text-gray-900 rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 border border-gray-700 bg-white">

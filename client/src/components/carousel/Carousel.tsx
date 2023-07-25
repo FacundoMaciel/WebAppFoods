@@ -78,9 +78,14 @@ const Carousel = () => {
 
   return (
     <div>
-      <h1 className="text-center text-2xl text-gray-900 font-bold">
-        Vegetarian Recipe Carousel
+      <div className="inline-flex items-center justify-center w-full">
+    <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-300" />
+    <div className="absolute px-4 -translate-x-1/2 rounded-xl bg-gray-100 border-2 border-dashed shadow-xl left-1/2">
+      <h1 className="text-center text-gray-900 p-2 font-bold">
+      🍥 Vegetarian Recipes 🍥
       </h1>
+    </div>
+      </div>
       <div className="flex items-center justify-center md:flex sm:flex lg:flex">
         <div className="w-full">
           <Slider {...settings}>

@@ -9,7 +9,6 @@ import Recipes from "../../components/recipes/Recipes";
 import Paginated from "../../components/paginated/Paginated";
 import FiltersAndSearch from "./FiltersAndSearch";
 
-import banner from "../../assets/images.png";
 import SimpleRecipesCarousel from "./filters/simpleRecipesCarousel/SimpleRecipesCarousel";
 //import CreatedRecipesCarousel from "./filters/createdRecipesCarousel/CreatedRecipesCarousel";
 import TheRecipesCreatedByUsers from "./filters/createdRecipesCarousel/TheRecipesCreatedByUsers";
@@ -48,15 +47,7 @@ const AllRecipes = (): JSX.Element => {
 
   return (
     <>
-      <div className="flex relative text-center justify-center items-center w-full h-screen opacity-90 bg-gray-100">
-        <div className="flex w-full h-screen justify-start text-center items-center">
-          <img className="" src={banner} alt="" />
-          <h1 className="absolute center text-3xl italic p-4 text-gray-200 md:text-4xl lg:text-6xl">
-            All Recipes
-          </h1>
-        </div>
-      </div>
-      <div className="flex items-center w-full">
+      <div className="flex items-center w-full pt-14">
         <FiltersAndSearch />
       </div>
       {recipesPages.length === 1 ||
@@ -71,7 +62,7 @@ const AllRecipes = (): JSX.Element => {
       recipesPages.length === 11 ? (
         <div className="hidden"></div>
       ) : (
-        <div className="flex justify-center items-center text-center bg-gray-100">
+        <div className="flex justify-center items-center w-full text-center bg-white">
           <Paginated
             recipes={recipesPerPage}
             paginated={paginated}

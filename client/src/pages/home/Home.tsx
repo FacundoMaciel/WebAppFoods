@@ -20,13 +20,10 @@ const Home = (): JSX.Element => {
     <>
       <HeaderComponent />
       <PrincipalRecipes />
-      <div className="inline-flex items-center justify-center w-full mt-10">
-        <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-300" />
+      <div className="inline-flex items-center justify-center w-full mt-2">
+        <hr className="w-[85%] h-px mb-8 border-0 rounded bg-gray-300" />
       </div>
       <SecondaryRecipes />
-      <div className="inline-flex items-center justify-center w-full mt-10">
-        <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-300" />
-      </div>
       <div className="container mx-auto p-10">
         <Carousel />
       </div>
