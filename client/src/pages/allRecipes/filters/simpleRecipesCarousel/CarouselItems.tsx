@@ -31,7 +31,7 @@ const CarouselItems = ({
           </div>
           <Link to={`recipeDetails/${id}`} >
             <div className="flex items-center justify-center mt-3 mb-5">
-              <button className="bg-[#DCFF70] p-2 border-gray-700 rounded-lg text-gray-900 hover:scale-95 hover:bg-transparent border-2 hover:text-gray-900 font-bold duration-300">
+              <button className="bg-gray-100 p-2 border-gray-700 rounded-lg text-gray-900 hover:bg-gray-300 border-2 hover:text-gray-900 font-bold duration-300">
                 Details 
               </button>
             </div>
