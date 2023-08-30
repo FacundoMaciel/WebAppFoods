@@ -51,13 +51,12 @@ const RecipeDetails: React.FC = () => {
             src={image}
             alt=""
           />
-          <h1 className="font-bold text-xl py-4">{theRecipe.title}</h1>
-          <ul className="border-2 border-white w-[90%] shadow-xl">
+          <ul className="border-2 border-white w-[90%] shadow-xl">Diets: 
             {theRecipe.diets?.map((el: string) => (
               <li>{el}</li>
             ))}
           </ul>
-          <ul className="border-2 border-white w-[90%] shadow-xl">
+          <ul className="border-2 border-white w-[90%] shadow-xl">Dishes: 
             {theRecipe.dishTypes?.map((el: string) => (
               <li>{el}</li>
             ))}
