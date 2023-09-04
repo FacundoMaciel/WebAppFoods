@@ -85,7 +85,7 @@ const SimpleRecipesCarousel = (): JSX.Element => {
     <hr className="w-[85%] h-px my-8 border-0 rounded bg-gray-300" />
     <div className="absolute px-4 -translate-x-1/2 rounded-xl bg-gray-100 border-2 border-dashed shadow-xl left-1/2">
       <h1 className="text-center text-gray-900 p-2 font-bold">
-      🍥 Are you hurry up?  Simple and quick cooking recipes 🍴 - 30 min❕ 🍥
+      🍥 Simple and quick cooking recipes🍴-30 min❕ 🍥
       </h1>
     </div>
       </div>

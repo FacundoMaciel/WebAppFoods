@@ -22,9 +22,9 @@ const TheRecipesCreatedByUsers = (): JSX.Element => {
       </h1>
     </div>
       </div>
-      <div className="container my-12 mx-auto px-4 md:px-12">
+      <div className="flex justify-center items-center">
     {DBrecipes.length ? (
-      <div className="flex flex-wrap mx-1 lg:-mx-4 shadow-xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-16">
         {DBrecipes?.map((element) => (
               <TheCreatedItems
               id={element.id}
