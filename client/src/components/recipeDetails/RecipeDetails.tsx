@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { RecipesInterface } from "../../Interfaces/Interfaces";
+import { RecipesInterface, TheModalRecipe } from "../../Interfaces/Interfaces";
 
 import { AppDispatch, RootState } from "../../store/store";
 import { getRecipeByIdThunk } from "../../store/slices/recipes/thunk";
@@ -9,6 +9,7 @@ import { getRecipeByIdThunk } from "../../store/slices/recipes/thunk";
 import image from "../../assets/imageHome4.webp";
 import { useParams } from "react-router-dom";
 import { clearDetails } from "../../store/slices/recipes/recipesSlice";
+import Swal from "sweetalert2";
 
 const RecipeDetails: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -26,8 +27,35 @@ const RecipeDetails: React.FC = () => {
     };
   }, []);
 
+  const theAlert = ({ image, steps }: TheModalRecipe) => {
+    Swal.fire({
+      width: "100%",
+      background: "rgb(229 231 235)",
+      color: "rgb(17 24 39)",
+      title: "Recipe",
+      imageUrl: image,
+      buttonsStyling: true,
+      imageWidth: 400,
+      imageHeight: 300,
+      footer: "Lets Go Cook!",
+      imageAlt: "Recipe Photo",
+      showCloseButton: true,
+      showConfirmButton: false,
+      html: "<ul>" + steps + "</ul>",
+      
+    });
+  };
+  let handleOnClick = () => {
+    let recipeSteps = theRecipe.analyzedInstructions;
+    for (let i = 0; i < recipeSteps.length; i++) {
+      let steps = recipeSteps[i].steps.map(
+        (el: any) => `<li>${el.step}</li>`
+      )
+      theAlert({ image, steps });
+    }
+  };
   // console.log(theRecipe);
-
+  
   return (
     <div key={id} className="flex flex-col justify-center items-center min-h-screen bg-gray-200 pt-20 text-center text-gray-900">
       <h1 className="font-bold text-lg">Recipe</h1>
@@ -37,30 +65,41 @@ const RecipeDetails: React.FC = () => {
         </h1>
       </div>
       <img
-        className="md:w-[60%] md:h-[75%] w-full h-[h-40%]"
+        className="md:w-[45%] md:h-[45%] w-full h-[h-40%]  border-2 border-gray-700 shadow-md"
         src={theRecipe.image}
         alt=""
       />
+      <div className="flex flex-col mt-4 justify-center text-center">
       <h2 className="text-2xl font-bold text-gray-900 mt-2">Description</h2>
-      <p className="bg-gray-200 pt-10 px-2">{theRecipe.summary?.replace(/<[^>]*>/g, "")}</p>
-
+      <p className="bg-gray-200 pt-10 px-10">{theRecipe.summary?.replace(/<[^>]*>/g, "")}</p>
+      </div>
       <div className="flex justify-center items-center bg-gray-200 pt-10">
-        <div className="flex flex-col justify-center items-center ">
+        <div className="flex flex-col justify-center items-center mb-20">
           <img
-            className="md:w-[45%] md:h-[45%] w-full h-[h-40%]"
+            className="md:w-[45%] md:h-[45%] w-full h-[h-40%] border-2 border-gray-700 shadow-md"
             src={image}
             alt=""
           />
-          <ul className="border-2 border-white w-[90%] shadow-xl">Diets: 
+          <ul className="border-2 border-gray-700  w-full md:w-[30%] sm:w-[30%] shadow-xl mt-10 font-semibold p-4">Diets: 
             {theRecipe.diets?.map((el: string) => (
-              <li>{el}</li>
+              <li className="font-light">{el}</li>
             ))}
           </ul>
-          <ul className="border-2 border-white w-[90%] shadow-xl">Dishes: 
+          <ul className="border-2 border-gray-700 w-full md:w-[30%] sm:w-[30%] shadow-xl mt-10 font-semibold p-4">Plates: 
             {theRecipe.dishTypes?.map((el: string) => (
-              <li>{el}</li>
+              <li className="font-light">{el}</li>
             ))}
           </ul>
+          {/* <ul>
+            {theSteps.steps?.map((el:any)=>(
+              <li>{el.step}</li>
+            ))}
+          </ul> */}
+          <div onClick={handleOnClick} 
+          className="bg-gray-500 w-full md:w-[20%] sm:w-[20%] shadow-xl mt-10 font-medium p-4 text-gray-200 hover:text-gray-900 hover:bg-gray-200 hover:scale-105 transition duration-200 cursor-pointer">
+              How to cook this plate?
+              <span className="text-xs ml-1">&#x279c;</span>
+          </div>
         </div>
       </div>
     </div>
@@ -68,69 +107,3 @@ const RecipeDetails: React.FC = () => {
 };
 
 export default RecipeDetails;
-
-{
-  /* <div className="pt-20 text-center text-gray-900">
-        <h1 className="font-bold text-lg">Recipe</h1>
-        <div className="bg-gray-200 pt-20">
-          <h1 className="font-bold text-3xl text-gray-900">
-            Brussel Sprouts with Roasted Red Peppers and Cider Vine
-          </h1>
-        </div>
-        <div
-          key=""
-          className="flex flex-col justify-center items-center min-h-screen bg-gray-200"
-        >
-          <div className="rounded-lg overflow-hidden max-w-lg w-full">
-            <img
-              src={brussels}
-              alt="RecipeImg"
-              className="w-full h-90 object-cover"
-            />
-            <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Description
-              </h2>
-              <p>
-                You may have noticed some changes around here. Most noticeably,
-                where is Appetite for China and why is it now called Cinnamon
-                Society? When I first started this blog in 2007, I had recently
-                moved from New York to Beijing and was exploring China for the
-                first time as a temporary resident. I wanted a blog to record my
-                travels around the country and my experiments in the kitchen to
-                reverse engineer all the new dishes I was trying. Because of
-                Appetite for China, I made a bunch of new friends in the food
-                world, started teaching cooking classes, and eventually started
-                writing cookbooks. But this need to change the blog’s name has
-                been 12 years in the making. When I moved back to the US in
-                2009, I knew I wanted to write about more than just Chinese
-                food. (And I had already been doing that for newspapers and
-                magazines.) But my partner at the time, who is now still a good
-                a friend, kept telling me that changing the site name would hurt
-                my SEO and to just leave it.
-              </p>
-              <h1 className="text-gray-900 leading-tight mb-4">
-                <ul className="text-transform: capitalize text-xl text-gray-600">
-                  Diets
-                  <li key="" className="text-gray-900 text-base">
-                    as
-                  </li>
-                </ul>
-                <hr />
-              </h1>
-              <div className="flex justify-between items-center">
-                <div className="flex items-center">
-                  <img
-                    src="{icon}"
-                    alt="Avatar"
-                    className="w-8 h-8 rounded-full mr-2 object-cover"
-                  />
-                  <span className="text-gray-600 font-semibold">""</span>
-                </div>
-                <span className="text-gray-600">Healthy Score:</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */
-}
