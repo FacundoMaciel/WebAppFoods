@@ -120,3 +120,16 @@ export function getLikesOrderThunk(
   });
   return rec;
 };
+
+export function getAllDiets() : AppThunk {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/diets");
+      let results = response.data;
+      dispatch(getAllRecipes(results));
+    //  console.log(results);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+}

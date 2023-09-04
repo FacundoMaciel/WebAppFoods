@@ -4,8 +4,6 @@ import { RootState } from "../../store/store";
 import brussels from "../../assets/brussels.jpg";
 import icon from "../../assets/PageIc.png";
 
-// import Swal from "sweetalert2";
-// import { TheModalRecipe } from "../../Interfaces/Interfaces";
 import { Link } from "react-router-dom";
 
 const SecondRecipes = (): JSX.Element => {
@@ -13,35 +11,6 @@ const SecondRecipes = (): JSX.Element => {
 
   let principalRecipe = recipes.filter((el) => el.diets.length).slice(12, 13);
 
-  // const theAlert = ({ healthScore, title, image, steps }: TheModalRecipe) => {
-  //   Swal.fire({
-  //     width: "80%",
-  //     background: "rgb(229 231 235)",
-  //     color: "rgb(17 24 39)",
-  //     title: title,
-  //     html: "<ul>" + steps + "</ul>",
-  //     imageUrl: image,
-  //     buttonsStyling: true,
-  //     imageWidth: 300,
-  //     imageHeight: 200,
-  //     footer: healthScore + " " + " " + " (Healthy Score)",
-  //     imageAlt: "Recipe Photo",
-  //     showCloseButton: true,
-  //     showConfirmButton: false,
-  //   });
-  // };
-  // let handleOnClick = () => {
-  //   let favoriteRecipes = principalRecipe;
-  //   for (let i = 0; i < favoriteRecipes.length; i++) {
-  //     let healthScore = favoriteRecipes[i].healthScore;
-  //     let title = favoriteRecipes[i].title;
-  //     let image = favoriteRecipes[i].image;
-  //     let steps = favoriteRecipes[i].analyzedInstructions[0].steps.map(
-  //       (el: any) => `<li>${el.step}</li>`
-  //     );
-  //     theAlert({ healthScore, title, image, steps });
-  //   }
-  // };
 
   return (
     <div className="text-center py-2">

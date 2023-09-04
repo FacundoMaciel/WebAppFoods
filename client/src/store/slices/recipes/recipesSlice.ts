@@ -61,6 +61,9 @@ const recipesSlice = createSlice({
     clearDetails: (state) => {
       state.recipeDetails = {};
     },
+    getDiets: (state, action) => {
+      state.diets = action.payload
+    },
   },
 });
 
@@ -76,6 +79,7 @@ export const {
   pricePerServingOrder,
   likesOrder,
   clearFilters,
+  getDiets
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;
