@@ -65,7 +65,7 @@ const RecipeDetails: React.FC = () => {
         </h1>
       </div>
       <img
-        className="md:w-[45%] md:h-[45%] w-full h-[h-40%]  border-2 border-gray-700 shadow-md"
+        className="md:w-[45%] md:h-[45%] w-full h-[h-40%]  border-2 border-gray-700 shadow-lg"
         src={theRecipe.image}
         alt=""
       />
