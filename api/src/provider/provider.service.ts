@@ -10,10 +10,9 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
           this.httpService.get(
-            'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100',
+            'https://api.spoonacular.com/recipes/complexSearch?apiKey=445704158a1842839fee0c14930bc5cf&addRecipeInformation=true&number=100',
           ),
       );
-      // console.log(response.data.results.map(el => el.dishTypes));
       return response.data;
     } catch (error) {
       console.log(error);
@@ -24,15 +23,12 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-          'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100',
+          'https://api.spoonacular.com/recipes/complexSearch?apiKey=445704158a1842839fee0c14930bc5cf&addRecipeInformation=true&number=100',
         ),
       );
       let recipeName = response?.data?.results?.filter((el) =>
         el.title.toLowerCase().includes(name.toLowerCase()),
       );
-      //  console.log(response.data.results.map(el => el.title));
-      //  console.log(recipeName);
-      console.log(name);
       return recipeName;
     } catch (error) {
       throw new Error(error.message);
@@ -43,13 +39,10 @@ export class ProviderService {
     try {
       const response = await firstValueFrom(
         this.httpService.get(
-          'https://api.spoonacular.com/recipes/complexSearch?apiKey=04de7983c2da4ee6a4270308c8dcba6c&addRecipeInformation=true&number=100',
+          'https://api.spoonacular.com/recipes/complexSearch?apiKey=445704158a1842839fee0c14930bc5cf&addRecipeInformation=true&number=100',
         ),
       );
       let recipeID = response.data.results.filter((el) => el.id == id);
-      // console.log(response.data.results.map(el => el.id));
-      // console.log(recipeID);
-      console.log(id);
       return recipeID;
     } catch (error) {
       throw new Error(error.message);
