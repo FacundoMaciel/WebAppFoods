@@ -13,7 +13,7 @@ export function getAllRecipesThunk(): AppThunk {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:3000/api/allRecipes");
-      let results = response.data.results;
+      const results = response.data.results;
       dispatch(getAllRecipes(results));
       // console.log(results);
     } catch (e) {
@@ -25,7 +25,7 @@ export function getAllDBRecipesThunk(): AppThunk {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:3000/api/recipes");
-      let results = response.data;
+      const results = response.data;
       dispatch(getAllDBrecipes(results));
       console.log(results);
     } catch (e) {
@@ -77,7 +77,7 @@ export function getAlphabeticalOrderThunk(
     return 0;
   });
   return rec;
-};
+}
 
 export function getHealthyScoreOrderThunk(
   rec: RecipesInterface[],
@@ -91,7 +91,7 @@ export function getHealthyScoreOrderThunk(
     } else return 0;
   });
   return rec;
-};
+}
 
 export function getPricePerServingOrderThunk(
   rec: RecipesInterface[],
@@ -105,7 +105,7 @@ export function getPricePerServingOrderThunk(
     } else return 0;
   });
   return rec;
-};
+}
 
 export function getLikesOrderThunk(
   rec: RecipesInterface[],
@@ -119,13 +119,13 @@ export function getLikesOrderThunk(
     } else return 0;
   });
   return rec;
-};
+}
 
 export function getAllDiets() : AppThunk {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:3000/api/diets");
-      let results = response.data;
+      const results = response.data;
       dispatch(getAllRecipes(results));
     //  console.log(results);
     } catch (e) {

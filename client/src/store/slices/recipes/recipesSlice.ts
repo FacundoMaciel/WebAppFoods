@@ -34,22 +34,22 @@ const recipesSlice = createSlice({
       state.recipes = action.payload;
     },
     alphabeticalOrder: (state, action) => {
-      let recipesByAlphabet = getAlphabeticalOrderThunk(state.recipes, action);
+      const recipesByAlphabet = getAlphabeticalOrderThunk(state.recipes, action);
       state.recipes = recipesByAlphabet;
     },
     healthyScoreOrder: (state, action) => {
-      let recipesByHealthyScore = getHealthyScoreOrderThunk(
+      const recipesByHealthyScore = getHealthyScoreOrderThunk(
         state.recipes,
         action
       );
       state.recipes = recipesByHealthyScore;
     },
     pricePerServingOrder: (state, action) => {
-      let recipesByPrice = getPricePerServingOrderThunk(state.recipes, action);
+      const recipesByPrice = getPricePerServingOrderThunk(state.recipes, action);
       state.recipes = recipesByPrice;
     },
     likesOrder: (state, action) => {
-      let recipesByLikes = getLikesOrderThunk(state.recipes, action);
+      const recipesByLikes = getLikesOrderThunk(state.recipes, action);
       state.recipes = recipesByLikes;
     },
     clearFilters: (state) => {
